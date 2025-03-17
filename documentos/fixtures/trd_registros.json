@@ -1,0 +1,1484 @@
+[
+  {
+    "model": "documentos.trdregistro",
+    "pk": 1,
+    "fields": {
+      "codigo": "100.02.01",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "ACTAS",
+      "subserie": "ACTAS DE ASAMBLEA GENERAL DE ACCIONISTAS",
+      "tipo_documental": "Acta",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 2,
+    "fields": {
+      "codigo": "100.02.06",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "ACTAS",
+      "subserie": "ACTAS DE COMITÉ TÉCNICO",
+      "tipo_documental": "Acta",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 3,
+    "fields": {
+      "codigo": "100.02.07",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "ACTAS",
+      "subserie": "ACTAS DE JUNTA DIRECTIVA",
+      "tipo_documental": "Acta",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 4,
+    "fields": {
+      "codigo": "100.06.01",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "CIRCULARES",
+      "subserie": "CIRCULARES INFORMATIVAS",
+      "tipo_documental": "Circular",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 5,
+    "fields": {
+      "codigo": "100.06.02",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "CIRCULARES",
+      "subserie": "CIRCULARES NORMATIVAS",
+      "tipo_documental": "Circular",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 6,
+    "fields": {
+      "codigo": "100.12.01",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "CONSECUTIVO DE COMUNICACIONES",
+      "subserie": "CORRESPONDENCIA DESPACHADA",
+      "tipo_documental": "Correspondencia",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 7,
+    "fields": {
+      "codigo": "100.12.02",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "CONSECUTIVO DE COMUNICACIONES",
+      "subserie": "CORRESPONDENCIA RECIBIDA",
+      "tipo_documental": "Correspondencia",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 8,
+    "fields": {
+      "codigo": "100.16",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "DECISIONES",
+      "subserie": "",
+      "tipo_documental": "Decisión",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 9,
+    "fields": {
+      "codigo": "100.22.01",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "INFORMES",
+      "subserie": "INFORMES A ORGANISMOS DE VIGILANCIA Y CONTROL",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 10,
+    "fields": {
+      "codigo": "100.22.06",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DE GESTIÓN",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 11,
+    "fields": {
+      "codigo": "100.22.08",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DE REVISORÍA FISCAL",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 12,
+    "fields": {
+      "codigo": "100.24.03",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
+      "subserie": "ESCRITURAS PÚBLICAS",
+      "tipo_documental": "Instrumento",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 13,
+    "fields": {
+      "codigo": "100.24.04",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
+      "subserie": "ESTATUTOS DEL TERMINAL DE TRANSPORTES S.A.",
+      "tipo_documental": "Instrumento",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 14,
+    "fields": {
+      "codigo": "100.35.01",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "PROYECTOS",
+      "subserie": "PROYECTOS DE ESTUDIOS Y DISEÑO",
+      "tipo_documental": "Proyecto",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 15,
+    "fields": {
+      "codigo": "100.35.02",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "PROYECTOS",
+      "subserie": "PROYECTOS DE PRESUPUESTO",
+      "tipo_documental": "Proyecto",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 16,
+    "fields": {
+      "codigo": "100.36",
+      "sesion": "Gerencia",
+      "subsesion": "",
+      "serie": "PUBLICACIONES INSTITUCIONALES",
+      "subserie": "",
+      "tipo_documental": "Publicación",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 17,
+    "fields": {
+      "codigo": "110.13.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "CONTRATOS",
+      "subserie": "CONTRATOS DE ARRENDAMIENTO",
+      "tipo_documental": "Contrato",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 18,
+    "fields": {
+      "codigo": "110.13.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "CONTRATOS",
+      "subserie": "CONTRATOS DE COMODATO",
+      "tipo_documental": "Contrato",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 19,
+    "fields": {
+      "codigo": "110.13.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "CONTRATOS",
+      "subserie": "CONTRATOS DE COOPERACIÓN",
+      "tipo_documental": "Contrato",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 20,
+    "fields": {
+      "codigo": "110.13.04",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "CONTRATOS",
+      "subserie": "CONTRATOS DE OBRA",
+      "tipo_documental": "Contrato",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 21,
+    "fields": {
+      "codigo": "110.13.05",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "CONTRATOS",
+      "subserie": "CONTRATOS DE PRESTACIÓN DE SERVICIOS",
+      "tipo_documental": "Contrato",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 22,
+    "fields": {
+      "codigo": "110.13.06",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "CONTRATOS",
+      "subserie": "CONTRATOS DE PUBLICIDAD",
+      "tipo_documental": "Contrato",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 23,
+    "fields": {
+      "codigo": "110.13.07",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "CONTRATOS",
+      "subserie": "CONTRATOS DE SUMINISTROS",
+      "tipo_documental": "Contrato",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 24,
+    "fields": {
+      "codigo": "110.14",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "CONVENIOS",
+      "subserie": "",
+      "tipo_documental": "Convenio",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 25,
+    "fields": {
+      "codigo": "110.15",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "COPIAS DE SEGURIDAD DE LOS SISTEMAS DE INFORMACIÓN",
+      "subserie": "",
+      "tipo_documental": "Copia de seguridad",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 26,
+    "fields": {
+      "codigo": "110.20",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "HISTORIALES DE EQUIPOS DE COMPUTO Y SOFTWARE",
+      "subserie": "",
+      "tipo_documental": "Historial",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 27,
+    "fields": {
+      "codigo": "110.21",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "HISTORIAS LABORALES",
+      "subserie": "",
+      "tipo_documental": "Historial",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 28,
+    "fields": {
+      "codigo": "110.22.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "INFORMES",
+      "subserie": "INFORMES A ORGANISMOS DE VIGILANCIA Y CONTROL",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 29,
+    "fields": {
+      "codigo": "110.22.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DE ALCOHOLIMETRÍA Y APTITUD FÍSICA",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 30,
+    "fields": {
+      "codigo": "110.22.06",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DE GESTIÓN",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 31,
+    "fields": {
+      "codigo": "110.24.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
+      "subserie": "CÓDIGO DE ÉTICA",
+      "tipo_documental": "Instrumento",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 32,
+    "fields": {
+      "codigo": "110.24.06",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
+      "subserie": "REGLAMENTO INTERNO DE TRABAJO",
+      "tipo_documental": "Instrumento",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 33,
+    "fields": {
+      "codigo": "110.27.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "LIBROS CONTABLES PRINCIPALES",
+      "subserie": "LIBRO DE ACCIONISTAS",
+      "tipo_documental": "Libro contable",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 34,
+    "fields": {
+      "codigo": "110.28.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "MANUALES",
+      "subserie": "MANUAL DE CONTRATACIÓN",
+      "tipo_documental": "Manual",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 35,
+    "fields": {
+      "codigo": "110.28.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "MANUALES",
+      "subserie": "MANUAL DE FUNCIONES Y PERFIL DE CARGOS",
+      "tipo_documental": "Manual",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 36,
+    "fields": {
+      "codigo": "110.29",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "NÓMINA",
+      "subserie": "",
+      "tipo_documental": "Nómina",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 37,
+    "fields": {
+      "codigo": "110.32",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "PROCESOS DISCIPLINARIOS",
+      "subserie": "",
+      "tipo_documental": "Proceso disciplinario",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 38,
+    "fields": {
+      "codigo": "110.34.05",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "PROGRAMAS",
+      "subserie": "PROGRAMAS DE MANTENIMIENTOS GENERALES",
+      "tipo_documental": "Programa",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 39,
+    "fields": {
+      "codigo": "110.34.06",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "PROGRAMAS",
+      "subserie": "PROGRAMAS DE MANTENIMIENTOS PREVENTIVOS DE EQUIPOS DE CÓMPUTO",
+      "tipo_documental": "Programa",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 40,
+    "fields": {
+      "codigo": "110.40",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "REGISTROS DE PROVEEDORES",
+      "subserie": "",
+      "tipo_documental": "Registro",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 41,
+    "fields": {
+      "codigo": "110.41.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "SEGUROS",
+      "subserie": "PÓLIZAS DE SEGUROS",
+      "tipo_documental": "Seguro",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 42,
+    "fields": {
+      "codigo": "111.01.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Oficina Jurídica",
+      "serie": "ACCIONES CONSTITUCIONALES",
+      "subserie": "ACCIONES DE TUTELA",
+      "tipo_documental": "Acción",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 43,
+    "fields": {
+      "codigo": "111.01.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Oficina Jurídica",
+      "serie": "ACCIONES CONSTITUCIONALES",
+      "subserie": "ACCIONES POPULARES",
+      "tipo_documental": "Acción",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 44,
+    "fields": {
+      "codigo": "111.11",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Oficina Jurídica",
+      "serie": "CONCILIACIONES PREJUDICIALES",
+      "subserie": "",
+      "tipo_documental": "Conciliación",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 45,
+    "fields": {
+      "codigo": "111.18",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Oficina Jurídica",
+      "serie": "DERECHOS DE PETICIÓN",
+      "subserie": "",
+      "tipo_documental": "Petición",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 46,
+    "fields": {
+      "codigo": "111.22.06",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Oficina Jurídica",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DE GESTIÓN",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 47,
+    "fields": {
+      "codigo": "111.33.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Oficina Jurídica",
+      "serie": "PROCESOS JUDICIALES",
+      "subserie": "PROCESOS ADMINISTRATIVOS",
+      "tipo_documental": "Proceso judicial",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 48,
+    "fields": {
+      "codigo": "111.33.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Oficina Jurídica",
+      "serie": "PROCESOS JUDICIALES",
+      "subserie": "PROCESOS CIVILES",
+      "tipo_documental": "Proceso judicial",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 49,
+    "fields": {
+      "codigo": "111.33.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Oficina Jurídica",
+      "serie": "PROCESOS JUDICIALES",
+      "subserie": "PROCESOS LABORALES ORDINARIOS",
+      "tipo_documental": "Proceso judicial",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 50,
+    "fields": {
+      "codigo": "111.33.04",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Oficina Jurídica",
+      "serie": "PROCESOS JUDICIALES",
+      "subserie": "PROCESOS PENALES",
+      "tipo_documental": "Proceso judicial",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 51,
+    "fields": {
+      "codigo": "112.22.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Control Interno",
+      "serie": "INFORMES",
+      "subserie": "INFORMES A ORGANISMOS DE VIGILANCIA Y CONTROL",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 52,
+    "fields": {
+      "codigo": "112.22.04",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Control Interno",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DE AUDITORÍA DE CONTROL INTERNO",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 53,
+    "fields": {
+      "codigo": "112.34.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Control Interno",
+      "serie": "PROGRAMAS",
+      "subserie": "PROGRAMA ANUAL DE AUDITORÍA DE CONTROL INTERNO",
+      "tipo_documental": "Programa",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 54,
+    "fields": {
+      "codigo": "113.04",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Tesorería",
+      "serie": "BOLETINES DIARIOS DE TESORERÍA",
+      "subserie": "",
+      "tipo_documental": "Boletín",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 55,
+    "fields": {
+      "codigo": "113.07.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Tesorería",
+      "serie": "COMPROBANTES CONTABLES",
+      "subserie": "COMPROBANTES DE EGRESO",
+      "tipo_documental": "Comprobante",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 56,
+    "fields": {
+      "codigo": "113.07.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Tesorería",
+      "serie": "COMPROBANTES CONTABLES",
+      "subserie": "COMPROBANTES DE INGRESO",
+      "tipo_documental": "Comprobante",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 57,
+    "fields": {
+      "codigo": "113.26.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "",
+      "serie": "LIBROS CONTABLES AUXILIARES",
+      "subserie": "LIBRO AUXILIAR DE BANCOS",
+      "tipo_documental": "Libro contable auxiliar",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 58,
+    "fields": {
+      "codigo": "113.26.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Tesorería",
+      "serie": "LIBROS CONTABLES AUXILIARES",
+      "subserie": "LIBRO AUXILIAR DE CAJA",
+      "tipo_documental": "Libro contable auxiliar",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 59,
+    "fields": {
+      "codigo": "114.05.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "CERTIFICADOS",
+      "subserie": "CERTIFICADOS DE INGRESOS Y RETENCIONES",
+      "tipo_documental": "Certificado",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 60,
+    "fields": {
+      "codigo": "114.05.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "CERTIFICADOS",
+      "subserie": "CERTIFICADOS DE RETENCIÓN EN LA FUENTE",
+      "tipo_documental": "Certificado",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 61,
+    "fields": {
+      "codigo": "114.07.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "COMPROBANTES CONTABLES",
+      "subserie": "COMPROBANTES DE CAUSACIÓN",
+      "tipo_documental": "Comprobante",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 62,
+    "fields": {
+      "codigo": "114.07.04",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "COMPROBANTES CONTABLES",
+      "subserie": "NOTAS DE AJUSTES CONTABLES",
+      "tipo_documental": "Comprobante",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 63,
+    "fields": {
+      "codigo": "114.10",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "CONCILIACIONES BANCARIAS",
+      "subserie": "",
+      "tipo_documental": "Conciliación bancaria",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 64,
+    "fields": {
+      "codigo": "114.17.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "DECLARACIONES TRIBUTARIAS",
+      "subserie": "DECLARACIÓN CREE",
+      "tipo_documental": "Declaración tributaria",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 65,
+    "fields": {
+      "codigo": "114.17.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "DECLARACIONES TRIBUTARIAS",
+      "subserie": "DECLARACIÓN DE IMPUESTO A LA RIQUEZA",
+      "tipo_documental": "Declaración tributaria",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 66,
+    "fields": {
+      "codigo": "114.17.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "DECLARACIONES TRIBUTARIAS",
+      "subserie": "DECLARACIÓN DE INDUSTRIA Y COMERCIO",
+      "tipo_documental": "Declaración tributaria",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 67,
+    "fields": {
+      "codigo": "114.17.04",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "DECLARACIONES TRIBUTARIAS",
+      "subserie": "DECLARACIÓN DE RENTA COMPLEMENTARIA",
+      "tipo_documental": "Declaración tributaria",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 68,
+    "fields": {
+      "codigo": "114.17.05",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "DECLARACIONES TRIBUTARIAS",
+      "subserie": "DECLARACIÓN DE RETENCIÓN EN LA FUENTE",
+      "tipo_documental": "Declaración tributaria",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 69,
+    "fields": {
+      "codigo": "114.17.06",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "DECLARACIONES TRIBUTARIAS",
+      "subserie": "DECLARACIÓN ICA",
+      "tipo_documental": "Declaración tributaria",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 70,
+    "fields": {
+      "codigo": "114.17.07",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "DECLARACIONES TRIBUTARIAS",
+      "subserie": "DECLARACIÓN IMPUESTO PREDIAL UNIFICADO",
+      "tipo_documental": "Declaración tributaria",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 71,
+    "fields": {
+      "codigo": "114.17.08",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "DECLARACIONES TRIBUTARIAS",
+      "subserie": "DECLARACIÓN IVA",
+      "tipo_documental": "Declaración tributaria",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 72,
+    "fields": {
+      "codigo": "114.19",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "ESTADOS FINANCIEROS",
+      "subserie": "",
+      "tipo_documental": "Estado financiero",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 73,
+    "fields": {
+      "codigo": "114.22.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "INFORMES",
+      "subserie": "INFORMES A ORGANISMOS DE VIGILANCIA Y CONTROL",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 74,
+    "fields": {
+      "codigo": "114.22.06",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DE GESTIÓN",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 75,
+    "fields": {
+      "codigo": "114.25.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "INVENTARIOS",
+      "subserie": "INVENTARIOS DE BIENES INMUEBLES, MUEBLES Y EQUIPOS",
+      "tipo_documental": "Inventario",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 76,
+    "fields": {
+      "codigo": "114.27.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "LIBROS CONTABLES PRINCIPALES",
+      "subserie": "LIBRO DE PRESUPUESTO ANUAL",
+      "tipo_documental": "Libro contable",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 77,
+    "fields": {
+      "codigo": "114.27.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "LIBROS CONTABLES PRINCIPALES",
+      "subserie": "LIBRO DIARIO",
+      "tipo_documental": "Libro contable",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 78,
+    "fields": {
+      "codigo": "114.27.04",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "LIBROS CONTABLES PRINCIPALES",
+      "subserie": "LIBRO INVENTARIOS Y BALANCES",
+      "tipo_documental": "Libro contable",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 79,
+    "fields": {
+      "codigo": "114.27.05",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Contabilidad",
+      "serie": "LIBROS CONTABLES PRINCIPALES",
+      "subserie": "LIBRO MAYOR Y DE BALANCE",
+      "tipo_documental": "Libro contable",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 80,
+    "fields": {
+      "codigo": "115.02.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "ACTAS",
+      "subserie": "ACTAS DE COMITÉ DE CONVIVENCIA LABORAL",
+      "tipo_documental": "Acta",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 81,
+    "fields": {
+      "codigo": "115.02.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "ACTAS",
+      "subserie": "ACTAS DE COMITÉ DEL SISTEMA INTEGRADO DE GESTIÓN",
+      "tipo_documental": "Acta",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 82,
+    "fields": {
+      "codigo": "115.02.04",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "ACTAS",
+      "subserie": "ACTAS DE COMITÉ PARITARIO DE SEGURIDAD Y SALUD EN EL TRABAJO",
+      "tipo_documental": "Acta",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 83,
+    "fields": {
+      "codigo": "115.03.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "AUDITORIAS",
+      "subserie": "AUDITORÍAS DEL SISTEMA INTEGRADO DE GESTIÓN",
+      "tipo_documental": "Auditoría",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 84,
+    "fields": {
+      "codigo": "115.22.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DE ACCIDENTES E INCIDENTES EN EL TRABAJO",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 85,
+    "fields": {
+      "codigo": "115.22.05",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DE AUSENTISMO LABORAL",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 86,
+    "fields": {
+      "codigo": "115.22.08",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DE SEGURIDAD Y RIESGOS LABORALES",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 87,
+    "fields": {
+      "codigo": "115.22.09",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DEL SISTEMA INTEGRADO DE GESTIÓN",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 88,
+    "fields": {
+      "codigo": "115.24.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
+      "subserie": "CERTIFICADOS DE CALIDAD",
+      "tipo_documental": "Instrumento",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 89,
+    "fields": {
+      "codigo": "115.24.05",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
+      "subserie": "REGLAMENTO DE HIGIENE Y SEGURIDAD INDUSTRIAL",
+      "tipo_documental": "Instrumento",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 90,
+    "fields": {
+      "codigo": "115.28.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "MANUALES",
+      "subserie": "MANUAL DEL SISTEMA INTEGRADO DE GESTIÓN",
+      "tipo_documental": "Manual",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 91,
+    "fields": {
+      "codigo": "115.30.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "PLANES",
+      "subserie": "PLAN ANUAL DE TRABAJO EN SEGURIDAD Y SALUD EN EL TRABAJO",
+      "tipo_documental": "Plan",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 92,
+    "fields": {
+      "codigo": "115.30.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "PLANES",
+      "subserie": "PLAN DE AUDITORIA INTERNA DEL SISTEMA INTEGRADO DE GESTIÓN",
+      "tipo_documental": "Plan",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 93,
+    "fields": {
+      "codigo": "115.30.04",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "PLANES",
+      "subserie": "PLAN DE EMERGENCIAS",
+      "tipo_documental": "Plan",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 94,
+    "fields": {
+      "codigo": "115.30.06",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "PLANES",
+      "subserie": "PLAN DE MANEJO AMBIENTAL",
+      "tipo_documental": "Plan",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 95,
+    "fields": {
+      "codigo": "115.34.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "PROGRAMAS",
+      "subserie": "PROGRAMAS DE BIENESTAR SOCIAL",
+      "tipo_documental": "Programa",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 96,
+    "fields": {
+      "codigo": "115.34.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "PROGRAMAS",
+      "subserie": "PROGRAMAS DE CAPACITACIÓN Y FORMACIÓN",
+      "tipo_documental": "Programa",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 97,
+    "fields": {
+      "codigo": "115.34.07",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Coordinación HSEQ",
+      "serie": "PROGRAMAS",
+      "subserie": "PROGRAMAS DE VIGILANCIA EPIDEMIOLÓGICA",
+      "tipo_documental": "Programa",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 98,
+    "fields": {
+      "codigo": "116.02.05",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Gestión Documental y Recursos Físicos",
+      "serie": "ACTAS",
+      "subserie": "ACTAS DE COMITÉ INTERNO DE ARCHIVO",
+      "tipo_documental": "Acta",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 99,
+    "fields": {
+      "codigo": "116.08.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Gestión Documental y Recursos Físicos",
+      "serie": "COMPROBANTES DE ALMACÉN",
+      "subserie": "COMPROBANTES DE ENTRADA DE ALMACÉN",
+      "tipo_documental": "Comprobante",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 100,
+    "fields": {
+      "codigo": "116.08.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Gestión Documental y Recursos Físicos",
+      "serie": "COMPROBANTES DE ALMACÉN",
+      "subserie": "COMPROBANTES DE SALIDA DE ALMACÉN",
+      "tipo_documental": "Comprobante",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 101,
+    "fields": {
+      "codigo": "116.23.01",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Gestión Documental y Recursos Físicos",
+      "serie": "INSTRUMENTOS ARCHIVÍSTICOS",
+      "subserie": "CUADRO DE CLASIFICACIÓN DOCUMENTAL",
+      "tipo_documental": "Instrumento",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 102,
+    "fields": {
+      "codigo": "116.23.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Gestión Documental y Recursos Físicos",
+      "serie": "INSTRUMENTOS ARCHIVÍSTICOS",
+      "subserie": "INVENTARIOS DOCUMENTALES",
+      "tipo_documental": "Instrumento",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 103,
+    "fields": {
+      "codigo": "116.23.03",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Gestión Documental y Recursos Físicos",
+      "serie": "INSTRUMENTOS ARCHIVÍSTICOS",
+      "subserie": "TABLAS DE RETENCIÓN DOCUMENTAL",
+      "tipo_documental": "Instrumento",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 104,
+    "fields": {
+      "codigo": "116.23.04",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Gestión Documental y Recursos Físicos",
+      "serie": "INSTRUMENTOS ARCHIVÍSTICOS",
+      "subserie": "TABLAS DE VALORACIÓN DOCUMENTAL",
+      "tipo_documental": "Instrumento",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 105,
+    "fields": {
+      "codigo": "116.25.02",
+      "sesion": "Dirección Administrativa",
+      "subsesion": "Gestión Documental y Recursos Físicos",
+      "serie": "INVENTARIOS",
+      "subserie": "INVENTARIOS DE ELEMENTOS DE CONSUMO",
+      "tipo_documental": "Inventario",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 106,
+    "fields": {
+      "codigo": "120.05.02",
+      "sesion": "Dirección Operativa",
+      "subsesion": "",
+      "serie": "CERTIFICADOS",
+      "subserie": "CERTIFICADOS DE PAZ Y SALVO DE TRANSGRESIONES",
+      "tipo_documental": "Certificado",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 107,
+    "fields": {
+      "codigo": "120.09",
+      "sesion": "Dirección Operativa",
+      "subsesion": "",
+      "serie": "COMPROBANTES DE RECAUDO DE TASA DE USO",
+      "subserie": "",
+      "tipo_documental": "Comprobante",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 108,
+    "fields": {
+      "codigo": "120.22.01",
+      "sesion": "Dirección Operativa",
+      "subsesion": "",
+      "serie": "INFORMES",
+      "subserie": "INFORMES A ORGANISMOS DE VIGILANCIA Y CONTROL",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 109,
+    "fields": {
+      "codigo": "120.22.06",
+      "sesion": "Dirección Operativa",
+      "subsesion": "",
+      "serie": "INFORMES",
+      "subserie": "INFORMES DE GESTIÓN",
+      "tipo_documental": "Informe",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 110,
+    "fields": {
+      "codigo": "120.28.04",
+      "sesion": "Dirección Operativa",
+      "subsesion": "",
+      "serie": "MANUALES",
+      "subserie": "MANUAL OPERATIVO",
+      "tipo_documental": "Manual",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 111,
+    "fields": {
+      "codigo": "120.30.05",
+      "sesion": "Dirección Operativa",
+      "subsesion": "",
+      "serie": "PLANES",
+      "subserie": "PLAN DE MANDO UNIFICADO",
+      "tipo_documental": "Plan",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 112,
+    "fields": {
+      "codigo": "120.31",
+      "sesion": "Dirección Operativa",
+      "subsesion": "",
+      "serie": "PLANES",
+      "subserie": "PETICIONES, QUEJAS, RECLAMOS, SUGERENCIAS Y DENUNCIAS",
+      "tipo_documental": "Plan",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 113,
+    "fields": {
+      "codigo": "120.37",
+      "sesion": "Dirección Operativa",
+      "subsesion": "",
+      "serie": "PLANES",
+      "subserie": "REGISTROS DE COMPROBANTES DE TRANSGRESIÓN",
+      "tipo_documental": "Plan",
+      "descripcion": ""
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 114,
+    "fields": {
+      "codigo": "120.42",
+      "sesion": "Dirección Operativa",
+      "subsesion": "",
+      "serie": "TRANSGRESIONES",
+      "subserie": "",
+      "tipo_documental": "Transgresión",
+      "descripcion": ""
+    }
+  }
+]

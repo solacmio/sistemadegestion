@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Lista de Documentos{% endblock %}
+
+{% block extra_head %}
+<style>
+  /* Estilos para las tarjetas */
+  .card-img-container {
+    height: 200px; /* Altura fija para la vista previa */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .card-img-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: black;
+  }
+  .clickable-card {
+    cursor: pointer;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Documentos</h1>
+
+{% if request.user.is_authenticated and request.user.rol == 'Administrador' %}
+  <div class="mb-4">
+    <a href="{% url 'crear_documento' %}" class="btn btn-success">Crear Nuevo Documento</a>
+    <a href="{% url 'desactivar_documentos' %}" class="btn btn-warning">Desactivar documentos por fecha</a>
+  </div>
+{% endif %}
+
+{% if request.user.is_superuser or request.user.is_staff or request.user.rol == 'Administrador' %}
+  <a href="{% url 'backup_database' %}" class="btn btn-outline-primary mb-3">Realizar copia de seguridad</a>
+  <a href="{% url 'listar_backups' %}" class="btn btn-outline-primary mb-3">Ver copias de seguridad</a>
+{% endif %}
+
+<!-- Campo de búsqueda -->
+<form method="GET" action="{% url 'lista_documentos' %}" class="mb-4">
+  <div class="row g-2">
+    <div class="col-md-4">
+      <input type="text" id="search-input" name="q" class="form-control" placeholder="Buscar por código, nombre, descripción, ruta..." value="{{ q }}">
+    </div>
+    <div class="col-md-3">
+      <input type="date" name="fecha_inicial" class="form-control" placeholder="Fecha inicial" value="{{ fecha_inicial }}">
+    </div>
+    <div class="col-md-3">
+      <input type="date" name="fecha_final" class="form-control" placeholder="Fecha final" value="{{ fecha_final }}">
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary w-100">Buscar</button>
+    </div>
+  </div>
+  <div class="mt-2">
+    <label>
+      <input type="checkbox" name="mostrar_desactivados" value="1" {% if request.GET.mostrar_desactivados %}checked{% endif %}>
+      Mostrar documentos desactivados
+    </label>
+  </div>
+</form>
+
+<!-- Contenedor de tarjetas -->
+<div id="documentos-table">
+  {% include 'documentos/partials/_tarjetas_documentos.html' %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function(){
+      $("#search-input").on("keyup", function(){
+          var query = $(this).val();
+          $.ajax({
+              url: "{% url 'ajax_busqueda_documentos' %}",
+              data: { 'q': query },
+              success: function(data) {
+                  $("#documentos-table").html(data);
+              },
+              error: function(xhr, status, error) {
+                  console.error("Error en la búsqueda: ", error);
+              }
+          });
+      });
+  });
+</script>
+{% endblock %}
+

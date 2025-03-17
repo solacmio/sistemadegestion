@@ -1,0 +1,28 @@
+# 🛑 Ignorar el entorno virtual (No subir venv)
+venv/
+
+# 🛑 Ignorar archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# 🛑 Ignorar configuración local y variables de entorno
+.env
+*.env
+
+# 🛑 Ignorar base de datos SQLite (Si usas PostgreSQL, no es necesario)
+db.sqlite3
+
+# 🛑 Ignorar archivos de logs y backups
+*.log
+*.bak
+/backups/
+
+# 🛑 Ignorar archivos generados por el sistema operativo
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# 🛑 Ignorar dependencias descargadas en Django
+node_modules/
+staticfiles/
+media/

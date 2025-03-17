@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Desactivar Documentos{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Desactivar Documentos</h1>
+
+<!-- Selector de Fecha -->
+<div class="mb-4">
+    <label for="fecha" class="form-label">Seleccionar Fecha Límite:</label>
+    <input type="date" id="fecha" class="form-control">
+</div>
+
+<!-- Contenedor donde se mostrarán los documentos -->
+<div id="documentos-lista" class="row">
+    <p class="text-center">Seleccione una fecha para ver los documentos.</p>
+</div>
+
+<!-- Botón para Desactivar -->
+<button id="btn-desactivar" class="btn btn-danger mt-3" disabled>Desactivar Documentos</button>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('fecha').addEventListener('change', function() {
+    let fecha = this.value;
+    if (fecha) {
+        fetch("{% url 'ajax_desactivar_documentos' %}", {
+            method: "POST",
+            headers: { 
+                "X-CSRFToken": "{{ csrf_token }}", 
+                "Content-Type": "application/x-www-form-urlencoded" 
+            },
+            body: `fecha=${fecha}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            let lista = document.getElementById("documentos-lista");
+            lista.innerHTML = data.html; 
+
+            if (data.success && data.documentos.length > 0) {
+                let tempContainer = document.createElement("div");
+                tempContainer.innerHTML = `{% include 'documentos/partials/_tarjetas_documentos.html' with docs=data.documentos only %}`;
+                lista.appendChild(tempContainer);
+
+                document.getElementById("btn-desactivar").disabled = false;
+            } else {
+                lista.innerHTML = `<p class='text-danger text-center'>No hay documentos para desactivar.</p>`;
+                document.getElementById("btn-desactivar").disabled = true;
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    }
+});
+</script>
+{% endblock %}

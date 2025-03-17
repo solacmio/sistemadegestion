@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Crear Documento{% endblock %}
+
+{% block extra_head %}
+  <style>
+    /* Otros estilos que ya tengas... */
+
+    /* Estilo para el autocompletado de jQuery UI */
+    .ui-autocomplete {
+      position: absolute;
+      z-index: 1050; /* Asegura que se muestre sobre otros elementos */
+      background-color: #fff;  /* Fondo blanco */
+      border: 1px solid #ccc;  /* Borde sutil */
+      border-radius: 4px;      /* Bordes redondeados */
+      max-height: 200px;       /* Altura máxima */
+      overflow-y: auto;        /* Desplazamiento vertical */
+      overflow-x: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  /* Sombra para dar sensación de "flotante" */
+    }
+    
+    .ui-menu-item {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    
+    .ui-menu-item:hover,
+    .ui-menu-item:focus {
+      background-color: #f0f0f0;  /* Un gris claro para resaltar el item al pasar el mouse */
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+  <h2>Crear Documento</h2>
+  <form method="POST" enctype="multipart/form-data" id="documento-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar Documento</button>
+  </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+  <script>
+    $(function(){
+      $("#id_codigo").autocomplete({
+        source: function(request, response) {
+          $.ajax({
+            url: "{% url 'sugerencias_codigo' %}",
+            dataType: "json",
+            data: {
+              term: request.term
+            },
+            success: function(data) {
+              response(data);
+            },
+            error: function(xhr, status, error) {
+              console.error("Error al obtener sugerencias: ", error);
+            }
+          });
+        },
+        minLength: 1,
+        select: function(event, ui) {
+          $("#id_codigo").val(ui.item.codigo);
+          $("#id_sesion").val(ui.item.sesion);
+          $("#id_subsesion").val(ui.item.subsesion);
+          $("#id_serie").val(ui.item.serie);
+          $("#id_subserie").val(ui.item.subserie);
+          $("#id_tipo_documental").val(ui.item.tipo_documental);
+          return false;
+        }
+      }).autocomplete("instance")._renderItem = function(ul, item) {
+        return $("<li>")
+          .append("<div>" + item.codigo + " - " + item.serie + (item.subserie ? " / " + item.subserie : "") + "</div>")
+          .appendTo(ul);
+      };
+    });
+  </script>
+{% endblock %}

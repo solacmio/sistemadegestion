@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Listado de Copias de Seguridad{% endblock %}
+
+{% block content %}
+  <h1>Copias de Seguridad</h1>
+  {% if backups %}
+    <ul class="list-group">
+      {% for file in backups %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ file }}
+          <div>
+            <a href="/backups/{{ file }}" class="btn btn-sm btn-outline-secondary" target="_blank">Ver</a>
+            <a href="{% url 'restaurar_backup' file %}" class="btn btn-sm btn-outline-danger">Restaurar</a>
+            <a href="{% url 'eliminar_backup' file %}" class="btn btn-sm btn-outline-warning" onclick="return confirm('¿Está seguro de que desea eliminar este backup?');">Eliminar</a>
+
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No se encontraron copias de seguridad.</p>
+  {% endif %}
+{% endblock %}

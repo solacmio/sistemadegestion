@@ -1,0 +1,24 @@
+<ul class="list-group mb-4">
+    <li class="list-group-item"><strong>Código:</strong> {{ doc.codigo }}</li>
+    <li class="list-group-item"><strong>Nombre:</strong> {{ doc.nombre }}</li>
+    <li class="list-group-item"><strong>Descripción:</strong> {{ doc.descripcion }}</li>
+    <li class="list-group-item"><strong>Fecha Inicial:</strong> {{ doc.fecha_inicial }}</li>
+    <li class="list-group-item"><strong>Fecha Final:</strong> {{ doc.fecha_final }}</li>
+    <li class="list-group-item"><strong>Folio Inicial:</strong> {{ doc.folio_inicial }}</li>
+    <li class="list-group-item"><strong>Folio Final:</strong> {{ doc.folio_final }}</li>
+    <li class="list-group-item"><strong>Serie/Subserie:</strong> {{ doc.serie }} / {{ doc.subserie }}</li>
+    <li class="list-group-item"><strong>Tipo de Documento:</strong> {{ doc.tipo_documento }}</li>
+    <li class="list-group-item"><strong>Estado:</strong> {{ doc.estado }}</li>
+    <li class="list-group-item"><strong>Ruta Física:</strong> {{ doc.ruta_fisica }}</li>
+    <li class="list-group-item"><strong>Hash (SHA-256):</strong> {{ doc.hash_sha256 }}</li>
+  </ul>
+  
+  {% if doc.archivo %}
+    <!-- Mostrar el thumbnail como imagen pequeña y clickable -->
+    <a href="{{ doc.archivo.url }}" target="_blank">
+      <img src="{{ doc.thumbnail.url }}" alt="Vista previa del PDF" class="img-thumbnail" style="max-width:300px;">
+    </a>
+  {% else %}
+    <p>No se ha subido archivo</p>
+  {% endif %}
+  
