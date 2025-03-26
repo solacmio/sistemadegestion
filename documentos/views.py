@@ -9,7 +9,17 @@ from django.http import HttpResponseRedirect
 from logs.models import Log
 from django.utils.dateparse import parse_date
 import logging
+import os
+from django.conf import settings
+import json
 
+
+def obtener_version():
+    version_file = os.path.join(settings.BASE_DIR, "version.txt")
+    if os.path.exists(version_file):
+        with open(version_file, "r") as f:
+            return f.read().strip()
+    return "Desconocida"
 
 @login_required
 def lista_documentos(request):
@@ -19,6 +29,7 @@ def lista_documentos(request):
     
     # Empezamos con todos los documentos ordenados por la fecha de creación (más recientes primero)
     docs = Documento.objects.all().order_by('-created_at')
+    
     
     mostrar_desactivados = request.GET.get('mostrar_desactivados', False)
 
@@ -109,4 +120,8 @@ def desactivar_documentos(request):
     """Muestra la página para seleccionar documentos a desactivar."""
     return render(request, 'documentos/desactivar.html')
 
+def mostrar_version(request):
+    with open("version.json", "r") as f:
+        version_data = json.load(f)
+    return render(request, "base.html", {"version": version_data["version"]})
 ...
