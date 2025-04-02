@@ -3,51 +3,55 @@ import sys
 import subprocess
 import time
 import webbrowser
+import locale
 
-# ------------------------------------------------------------------------------
-# 1. Determinar la carpeta base del proyecto usando rutas relativas.
-# ------------------------------------------------------------------------------
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-PROJECT_DIR = os.path.join(BASE_DIR, "proyecto_doc")
+# Forzar UTF-8 en toda la ejecución
+os.environ["PYTHONUTF8"] = "1"
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
+locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
+
+# Rutas relativas
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Directorio donde está run.py (por ejemplo, C:\Users\TESORERIA\sistemadegestion)
+VENV_DIR = os.path.join(BASE_DIR, "venv")               # Se asume que el entorno virtual está en el mismo directorio
+VENV_PYTHON = os.path.join(VENV_DIR, "Scripts", "python.exe")  # Python del venv
+UPDATE_SCRIPT = os.path.join(BASE_DIR, "update_checker.py")  # update_checker.py dentro de la carpeta del proyecto
+SERVER_PATH = BASE_DIR  # Donde está manage.py
+
+# Archivo de logs
 LOG_FILE = os.path.join(BASE_DIR, "run.log")
-UPDATE_SCRIPT = os.path.join(PROJECT_DIR, "update_checker.py")
 
 def log_message(message):
-    """Registrar mensajes en run.log con codificación utf-8-sig."""
-    with open(LOG_FILE, "a", encoding="utf-8-sig") as log:
-        log.write(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {message}\n")
+    """Registra mensajes en consola y en el archivo de log."""
+    with open(LOG_FILE, "a", encoding="utf-8") as log_file:
+        log_file.write(f"{message}\n")
+    print(message)
 
-# ------------------------------------------------------------------------------
-# 2. Ejecutar update_checker.py usando el Python empaquetado (sys.executable)
-# ------------------------------------------------------------------------------
-if os.path.exists(UPDATE_SCRIPT):
-    try:
-        log_message("🔍 Buscando actualizaciones con update_checker.py...")
-        result = subprocess.run(
-            [sys.executable, UPDATE_SCRIPT],
-            check=True,
-            capture_output=True,
-            text=True,
-            cwd=PROJECT_DIR
-        )
-        log_message(f"✅ update_checker.py ejecutado correctamente: {result.stdout}")
-    except subprocess.CalledProcessError as e:
-        log_message(f"❌ ERROR ejecutando update_checker.py: {e.stderr}")
-else:
-    log_message(f"⚠️ No se encontró update_checker.py en {UPDATE_SCRIPT}")
-
-# ------------------------------------------------------------------------------
-# 3. Iniciar el servidor Django
-# ------------------------------------------------------------------------------
 try:
-    log_message(f"🚀 Iniciando servidor en {PROJECT_DIR}...")
-    # Usamos sys.executable para asegurar que se emplee el intérprete empaquetado
-    command = f'{sys.executable} manage.py runserver'
-    process = subprocess.Popen(command, shell=True, cwd=PROJECT_DIR)
-    time.sleep(5)  # Tiempo para que el servidor inicie
-    webbrowser.open("http://127.0.0.1:8000")
-    log_message("✅ Servidor Django iniciado correctamente.")
+    # Verificar si el entorno virtual existe
+    if not os.path.exists(VENV_PYTHON):
+        raise FileNotFoundError(f"No se encontró el entorno virtual en {VENV_PYTHON}")
+
+    log_message("[INFO] Entorno virtual detectado correctamente.")
+
+    # Buscar actualizaciones con update_checker.py usando el Python del entorno virtual
+    log_message("[INFO] Buscando actualizaciones con update_checker.py...")
+    update_process = subprocess.run(
+        [VENV_PYTHON, UPDATE_SCRIPT],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        cwd=BASE_DIR
+    )
+    if update_process.returncode == 0:
+        log_message(f"[SUCCESS] update_checker.py ejecutado correctamente: {update_process.stdout.strip()}")
+    else:
+        log_message(f"[ERROR] Error en update_checker.py: {update_process.stderr.strip()}")
+
+    # Iniciar el servidor Django usando el Python del entorno virtual
+    log_message("[INFO] Iniciando servidor Django...")
+    subprocess.run([VENV_PYTHON, "manage.py", "runserver"], cwd=SERVER_PATH, shell=True, check=True)
+    log_message("[SUCCESS] Servidor Django iniciado correctamente.")
+
 except Exception as e:
-    log_message(f"❌ ERROR al iniciar el servidor: {str(e)}")
-    time.sleep(5)
-    sys.exit(1)
+    log_message(f"[ERROR] Ocurrió un error: {e}")
