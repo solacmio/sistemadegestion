@@ -13,7 +13,7 @@ class CustomUser(AbstractUser):
         ('Administrador', 'Administrador'),
         ('Basico', 'Basico'),
     ]
-    rol = models.CharField(max_length=20, choices=ROL_CHOICES, default='Basico')
+    rol = models.CharField(max_length=20, choices=ROL_CHOICES, default='Administrador')
 
     def __str__(self):
         return f"{self.username} ({self.rol})"

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-i^g15ym8s4+9mp7-@2bn*r4ca++4%wxf#laxa51y&5h_kp(cyh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.100', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.1.210']
 
 
 # Application definition
@@ -106,7 +107,7 @@ DATABASES = {
         'NAME': 'gestiondocumentaldb',
         'USER': 'postgres',
         'PASSWORD': 'calidad2025',
-        'HOST': 'localhost',  # o la IP/dominio del servidor PostgreSQL
+        'HOST': '192.168.1.210',  # o la IP/dominio del servidor PostgreSQL
         'PORT': '5432',       # puerto por defecto de PostgreSQL
     }
 }
