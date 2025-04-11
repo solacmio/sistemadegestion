@@ -42,8 +42,8 @@ class Documento(models.Model):
     serie = models.CharField(max_length=100)
     subserie = models.CharField(max_length=100, null=True, blank=True)
     # Nuevos campos
-    sesion = models.CharField(max_length=100, null=True, blank=True, verbose_name="Sesión")
-    subsesion = models.CharField(max_length=100, null=True, blank=True, verbose_name="Sub-sesión")
+    sesion = models.CharField(max_length=100, null=True, blank=True, verbose_name="Sección")
+    subsesion = models.CharField(max_length=100, null=True, blank=True, verbose_name="Subsección")
     tipo_documental = models.CharField(max_length=50, choices=TIPO_DOCUMENTO_CHOICES)
     estado = models.CharField(max_length=20, choices=ESTADO_CHOICES)
     archivo = models.FileField(
