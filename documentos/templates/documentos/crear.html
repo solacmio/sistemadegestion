@@ -4,66 +4,239 @@
 {% block title %}Crear Documento{% endblock %}
 
 {% block extra_head %}
-  <!-- CSS de jQuery UI para autocompletado -->
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #f0f2f5, #d9e2ec);
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .blur-background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(6px);
+      background-color: rgba(255, 255, 255, 0.2);
+      z-index: -1;
+    }
+
+    .form-wizard {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      width: 100%;
+      margin: auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(4px);
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .progress-bar-custom {
+      height: 5px;
+      background-color: #198754;
+      width: 0%;
+      transition: width 0.4s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 3px 3px 0 0;
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .step-indicator .step-num {
+      flex: 1;
+      text-align: center;
+      font-weight: bold;
+      padding: 10px;
+      border-bottom: 3px solid #ccc;
+      color: #999;
+    }
+
+    .step-indicator .step-num.active {
+      color: #000;
+      border-color: #0d6efd;
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
-<div class="container my-4">
-  <h2>Crear Documento</h2>
-  {% if messages %}
-    {% for message in messages %}
-      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-    {% endfor %}
-  {% endif %}
-  <form id="document-form" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" id="submit-btn" class="btn btn-primary">Guardar Documento</button>
-  </form>
-  
-  <script>
-    document.getElementById('document-form').addEventListener('submit', function() {
-        // Deshabilitar el botón de envío para prevenir envíos múltiples
-        document.getElementById('submit-btn').disabled = true;
-    });
-  </script>
+<div class="container py-5">
+  <div class="form-wizard position-relative">
+    <div class="progress-bar-custom" id="progressBar"></div>
+
+    <div class="step-indicator">
+      <div class="step-num step-1 active">Paso 1<br><small>Datos Básicos</small></div>
+      <div class="step-num step-2">Paso 2<br><small>TRD</small></div>
+      <div class="step-num step-3">Paso 3<br><small>Archivo</small></div>
+    </div>
+
+    <form id="document-form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <!-- Paso 1 -->
+      <div class="step step-1 active">
+        <div class="mb-3">
+          {{ form.codigo.label_tag }} {{ form.codigo }}
+        </div>
+        <div class="mb-3">
+          {{ form.nombre.label_tag }} {{ form.nombre }}
+        </div>
+        <div class="mb-3">
+          {{ form.descripcion.label_tag }} {{ form.descripcion }}
+        </div>
+        <div class="mb-3">
+          {{ form.fecha_inicial.label_tag }} {{ form.fecha_inicial }}
+        </div>
+        <div class="mb-3">
+          {{ form.fecha_final.label_tag }} {{ form.fecha_final }}
+        </div>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="step step-2">
+        <div class="mb-3">
+          {{ form.folio_inicial.label_tag }} {{ form.folio_inicial }}
+        </div>
+        <div class="mb-3">
+          {{ form.folio_final.label_tag }} {{ form.folio_final }}
+        </div>
+        <div class="mb-3">
+          {{ form.serie.label_tag }} {{ form.serie }}
+        </div>
+        <div class="mb-3">
+          {{ form.subserie.label_tag }} {{ form.subserie }}
+        </div>
+        <div class="mb-3">
+          {{ form.sesion.label_tag }} {{ form.sesion }}
+        </div>
+        <div class="mb-3">
+          {{ form.subsesion.label_tag }} {{ form.subsesion }}
+        </div>
+        <div class="mb-3">
+          {{ form.tipo_documental.label_tag }} {{ form.tipo_documental }}
+        </div>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="step step-3">
+        <div class="mb-3">
+          {{ form.estado.label_tag }} {{ form.estado }}
+        </div>
+        <div class="mb-3">
+          {{ form.archivo.label_tag }} {{ form.archivo }}
+        </div>
+        <div class="mb-3">
+          {{ form.ruta_fisica.label_tag }} {{ form.ruta_fisica }}
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between mt-4">
+        <button type="button" class="btn btn-secondary" id="prevBtn">Anterior</button>
+        <button type="button" class="btn btn-primary" id="nextBtn">Siguiente</button>
+        <button type="submit" class="btn btn-success d-none" id="submitBtn">Guardar Documento</button>
+      </div>
+    </form>
+  </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-  <script>
-    $(function(){
-      $("#id_codigo").autocomplete({
-        source: function(request, response) {
-          $.ajax({
-            url: "{% url 'sugerencias_codigo' %}",
-            dataType: "json",
-            data: {
-              term: request.term
-            },
-            success: function(data) {
-              response(data);
-            }
-          });
-        },
-        minLength: 1,
-        select: function(event, ui) {
-          // ui.item es un objeto con las claves definidas en la API
-          $("#id_codigo").val(ui.item.codigo);
-          $("#id_sesion").val(ui.item.sesion);
-          $("#id_subsesion").val(ui.item.subsesion);
-          $("#id_serie").val(ui.item.serie);
-          $("#id_subserie").val(ui.item.subserie);
-          $("#id_tipo_documental").val(ui.item.tipo_documental);
-          return false;
-        }
-      }).autocomplete("instance")._renderItem = function(ul, item) {
-        return $("<li>")
-          .append("<div>" + item.codigo + " - " + item.serie + (item.subserie ? " / " + item.subserie : "") + "</div>")
-          .appendTo(ul);
-      };
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<script>
+  $(function () {
+    // Autocompletado en campo código
+    $("#id_codigo").autocomplete({
+      source: function(request, response) {
+        $.ajax({
+          url: "http://192.168.1.210:8000/documentos/api/sugerencias_codigo/",
+          dataType: "json",
+          data: {
+            term: request.term
+          },
+          success: function(data) {
+            response(data);
+          }
+        });
+      },
+      minLength: 1,
+      select: function(event, ui) {
+        $("#id_codigo").val(ui.item.codigo);
+        $("#id_sesion").val(ui.item.sesion);
+        $("#id_subsesion").val(ui.item.subsesion);
+        $("#id_serie").val(ui.item.serie);
+        $("#id_subserie").val(ui.item.subserie);
+        $("#id_tipo_documental").val(ui.item.tipo_documental);
+        return false;
+      }
+    }).autocomplete("instance")._renderItem = function(ul, item) {
+      return $("<li>")
+        .append("<div>" + item.codigo + " - " + item.serie + (item.subserie ? " / " + item.subserie : "") + "</div>")
+        .appendTo(ul);
+    };
+
+    // Navegación entre pasos
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    function showStep(step) {
+      $(".step").removeClass("active");
+      $(".step-" + step).addClass("active");
+
+      $(".step-num").removeClass("active");
+      $(".step-num.step-" + step).addClass("active");
+
+      $("#prevBtn").toggle(step > 1);
+      $("#nextBtn").toggle(step < totalSteps);
+      $("#submitBtn").toggleClass("d-none", step < totalSteps);
+
+      // Progreso visual
+      const progressPercent = ((step - 1) / (totalSteps - 1)) * 100;
+      $("#progressBar").css("width", progressPercent + "%");
+    }
+
+    $("#prevBtn").click(function () {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
     });
-  </script>
+
+    $("#nextBtn").click(function () {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    });
+
+    showStep(currentStep);
+  });
+</script>
 {% endblock %}
