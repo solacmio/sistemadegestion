@@ -16,7 +16,7 @@ class DocumentoForm(forms.ModelForm):
             'fecha_inicial', 'fecha_final',
             'folio_inicial', 'folio_final',
             'serie', 'subserie', 'sesion', 'subsesion',
-            'tipo_documental', 'estado', 'archivo', 'ruta_fisica'
+            'tipo_documental', 'archivo', 'ruta_fisica'
         ]
         widgets = {
             'codigo': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej. 100.02.01'}),
@@ -30,8 +30,7 @@ class DocumentoForm(forms.ModelForm):
             'subserie': forms.TextInput(attrs={'class': 'form-control'}),
             'sesion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej. Gerencia o Dirección Administrativa'}),
             'subsesion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej. Oficina Jurídica'}),
-            'tipo_documental': forms.Select(attrs={'class': 'form-select'}),
-            'estado': forms.Select(attrs={'class': 'form-select'}),
+            'tipo_documental': forms.Select(attrs={'class': 'form-control'}),
             'archivo': forms.ClearableFileInput(attrs={'class': 'form-control'}),
             'ruta_fisica': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej. Módulo 2, Caja 5, Carpeta 12'})
         }

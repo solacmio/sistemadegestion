@@ -35,10 +35,11 @@ document.getElementById('fecha').addEventListener('change', function() {
         })
         .then(response => response.json())
         .then(data => {
+            console.log("📦 Datos recibidos del servidor:", data);
             let lista = document.getElementById("documentos-lista");
             lista.innerHTML = data.html; 
 
-            if (data.success && data.documentos.length > 0) {
+            if (data.success && Array.isArray(data.documentos) && data.documentos.length > 0) {
                 let tempContainer = document.createElement("div");
                 tempContainer.innerHTML = `{% include 'documentos/partials/_tarjetas_documentos.html' with docs=data.documentos only %}`;
                 lista.appendChild(tempContainer);
@@ -51,6 +52,31 @@ document.getElementById('fecha').addEventListener('change', function() {
         })
         .catch(error => console.error("Error:", error));
     }
+});
+// Evento para el botón de desactivación
+document.getElementById("btn-desactivar").addEventListener("click", function() {
+    if (documentosSeleccionados.length === 0) return;
+
+    if (!confirm("¿Está seguro de que desea desactivar estos documentos?")) return;
+
+    fetch("{% url 'confirmar_desactivacion' %}", {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": "{{ csrf_token }}",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ documentos: documentosSeleccionados })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert(data.message);
+            location.reload(); // Refrescar la vista
+        } else {
+            alert("Error: " + data.message);
+        }
+    })
+    .catch(error => console.error("Error:", error));
 });
 </script>
 {% endblock %}

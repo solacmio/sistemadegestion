@@ -9,7 +9,10 @@
       "serie": "ACTAS",
       "subserie": "ACTAS DE ASAMBLEA GENERAL DE ACCIONISTAS",
       "tipo_documental": "Acta",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 8,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -22,7 +25,10 @@
       "serie": "ACTAS",
       "subserie": "ACTAS DE COMITÉ TÉCNICO",
       "tipo_documental": "Acta",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 8,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -35,7 +41,10 @@
       "serie": "ACTAS",
       "subserie": "ACTAS DE JUNTA DIRECTIVA",
       "tipo_documental": "Acta",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 8,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -48,7 +57,10 @@
       "serie": "CIRCULARES",
       "subserie": "CIRCULARES INFORMATIVAS",
       "tipo_documental": "Circular",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 3,
+      "disposicion_final": "E"
     }
   },
   {
@@ -61,7 +73,10 @@
       "serie": "CIRCULARES",
       "subserie": "CIRCULARES NORMATIVAS",
       "tipo_documental": "Circular",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 3,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -74,7 +89,10 @@
       "serie": "CONSECUTIVO DE COMUNICACIONES",
       "subserie": "CORRESPONDENCIA DESPACHADA",
       "tipo_documental": "Correspondencia",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 3,
+      "disposicion_final": "S"
     }
   },
   {
@@ -87,7 +105,10 @@
       "serie": "CONSECUTIVO DE COMUNICACIONES",
       "subserie": "CORRESPONDENCIA RECIBIDA",
       "tipo_documental": "Correspondencia",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 3,
+      "disposicion_final": "S"
     }
   },
   {
@@ -100,7 +121,10 @@
       "serie": "DECISIONES",
       "subserie": "",
       "tipo_documental": "Decisión",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 19,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -113,7 +137,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES A ORGANISMOS DE VIGILANCIA Y CONTROL",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -126,7 +153,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES DE GESTIÓN",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -139,7 +169,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES DE REVISORÍA FISCAL",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -152,7 +185,10 @@
       "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
       "subserie": "ESCRITURAS PÚBLICAS",
       "tipo_documental": "Instrumento",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -165,7 +201,10 @@
       "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
       "subserie": "ESTATUTOS DEL TERMINAL DE TRANSPORTES S.A.",
       "tipo_documental": "Instrumento",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -178,7 +217,10 @@
       "serie": "PROYECTOS",
       "subserie": "PROYECTOS DE ESTUDIOS Y DISEÑO",
       "tipo_documental": "Proyecto",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -191,7 +233,10 @@
       "serie": "PROYECTOS",
       "subserie": "PROYECTOS DE PRESUPUESTO",
       "tipo_documental": "Proyecto",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "S"
     }
   },
   {
@@ -204,7 +249,10 @@
       "serie": "PUBLICACIONES INSTITUCIONALES",
       "subserie": "",
       "tipo_documental": "Publicación",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 2,
+      "disposicion_final": "S"
     }
   },
   {
@@ -217,7 +265,10 @@
       "serie": "CONTRATOS",
       "subserie": "CONTRATOS DE ARRENDAMIENTO",
       "tipo_documental": "Contrato",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 19,
+      "disposicion_final": "S"
     }
   },
   {
@@ -230,7 +281,10 @@
       "serie": "CONTRATOS",
       "subserie": "CONTRATOS DE COMODATO",
       "tipo_documental": "Contrato",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 19,
+      "disposicion_final": "S"
     }
   },
   {
@@ -243,7 +297,10 @@
       "serie": "CONTRATOS",
       "subserie": "CONTRATOS DE COOPERACIÓN",
       "tipo_documental": "Contrato",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 19,
+      "disposicion_final": "S"
     }
   },
   {
@@ -256,7 +313,10 @@
       "serie": "CONTRATOS",
       "subserie": "CONTRATOS DE OBRA",
       "tipo_documental": "Contrato",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 19,
+      "disposicion_final": "MD"
     }
   },
   {
@@ -269,7 +329,10 @@
       "serie": "CONTRATOS",
       "subserie": "CONTRATOS DE PRESTACIÓN DE SERVICIOS",
       "tipo_documental": "Contrato",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 19,
+      "disposicion_final": "E"
     }
   },
   {
@@ -282,7 +345,10 @@
       "serie": "CONTRATOS",
       "subserie": "CONTRATOS DE PUBLICIDAD",
       "tipo_documental": "Contrato",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 19,
+      "disposicion_final": "S"
     }
   },
   {
@@ -295,7 +361,10 @@
       "serie": "CONTRATOS",
       "subserie": "CONTRATOS DE SUMINISTROS",
       "tipo_documental": "Contrato",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 19,
+      "disposicion_final": "S"
     }
   },
   {
@@ -308,7 +377,11 @@
       "serie": "CONVENIOS",
       "subserie": "",
       "tipo_documental": "Convenio",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 19,
+      "disposicion_final": "MD"
+      
     }
   },
   {
@@ -321,7 +394,10 @@
       "serie": "COPIAS DE SEGURIDAD DE LOS SISTEMAS DE INFORMACIÓN",
       "subserie": "",
       "tipo_documental": "Copia de seguridad",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "S"
     }
   },
   {
@@ -334,7 +410,10 @@
       "serie": "HISTORIALES DE EQUIPOS DE COMPUTO Y SOFTWARE",
       "subserie": "",
       "tipo_documental": "Historial",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 3,
+      "disposicion_final": "E"
     }
   },
   {
@@ -347,7 +426,10 @@
       "serie": "HISTORIAS LABORALES",
       "subserie": "",
       "tipo_documental": "Historial",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 79,
+      "disposicion_final": "MD"
     }
   },
   {
@@ -360,7 +442,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES A ORGANISMOS DE VIGILANCIA Y CONTROL",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "MD"
     }
   },
   {
@@ -373,7 +458,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES DE ALCOHOLIMETRÍA Y APTITUD FÍSICA",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -386,7 +474,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES DE GESTIÓN",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -399,7 +490,10 @@
       "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
       "subserie": "CÓDIGO DE ÉTICA",
       "tipo_documental": "Instrumento",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -412,7 +506,10 @@
       "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
       "subserie": "REGLAMENTO INTERNO DE TRABAJO",
       "tipo_documental": "Instrumento",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -425,7 +522,10 @@
       "serie": "LIBROS CONTABLES PRINCIPALES",
       "subserie": "LIBRO DE ACCIONISTAS",
       "tipo_documental": "Libro contable",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -438,7 +538,10 @@
       "serie": "MANUALES",
       "subserie": "MANUAL DE CONTRATACIÓN",
       "tipo_documental": "Manual",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -451,7 +554,10 @@
       "serie": "MANUALES",
       "subserie": "MANUAL DE FUNCIONES Y PERFIL DE CARGOS",
       "tipo_documental": "Manual",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -464,7 +570,10 @@
       "serie": "NÓMINA",
       "subserie": "",
       "tipo_documental": "Nómina",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 19,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -477,7 +586,10 @@
       "serie": "PROCESOS DISCIPLINARIOS",
       "subserie": "",
       "tipo_documental": "Proceso disciplinario",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "S"
     }
   },
   {
@@ -490,7 +602,10 @@
       "serie": "PROGRAMAS",
       "subserie": "PROGRAMAS DE MANTENIMIENTOS GENERALES",
       "tipo_documental": "Programa",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "S"
     }
   },
   {
@@ -503,7 +618,10 @@
       "serie": "PROGRAMAS",
       "subserie": "PROGRAMAS DE MANTENIMIENTOS PREVENTIVOS DE EQUIPOS DE CÓMPUTO",
       "tipo_documental": "Programa",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 3,
+      "disposicion_final": "E"
     }
   },
   {
@@ -516,7 +634,10 @@
       "serie": "REGISTROS DE PROVEEDORES",
       "subserie": "",
       "tipo_documental": "Registro",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 3,
+      "disposicion_final": "E"
     }
   },
   {
@@ -529,7 +650,10 @@
       "serie": "SEGUROS",
       "subserie": "PÓLIZAS DE SEGUROS",
       "tipo_documental": "Seguro",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "E"
     }
   },
   {
@@ -542,7 +666,10 @@
       "serie": "ACCIONES CONSTITUCIONALES",
       "subserie": "ACCIONES DE TUTELA",
       "tipo_documental": "Acción",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "E"
     }
   },
   {
@@ -659,7 +786,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES A ORGANISMOS DE VIGILANCIA Y CONTROL",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -672,7 +802,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES DE AUDITORÍA DE CONTROL INTERNO",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -685,7 +818,10 @@
       "serie": "PROGRAMAS",
       "subserie": "PROGRAMA ANUAL DE AUDITORÍA DE CONTROL INTERNO",
       "tipo_documental": "Programa",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -698,7 +834,10 @@
       "serie": "BOLETINES DIARIOS DE TESORERÍA",
       "subserie": "",
       "tipo_documental": "Boletín",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -711,7 +850,10 @@
       "serie": "COMPROBANTES CONTABLES",
       "subserie": "COMPROBANTES DE EGRESO",
       "tipo_documental": "Comprobante",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "S"
     }
   },
   {
@@ -724,7 +866,10 @@
       "serie": "COMPROBANTES CONTABLES",
       "subserie": "COMPROBANTES DE INGRESO",
       "tipo_documental": "Comprobante",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "S"
     }
   },
   {
@@ -737,7 +882,10 @@
       "serie": "LIBROS CONTABLES AUXILIARES",
       "subserie": "LIBRO AUXILIAR DE BANCOS",
       "tipo_documental": "Libro contable auxiliar",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -750,7 +898,10 @@
       "serie": "LIBROS CONTABLES AUXILIARES",
       "subserie": "LIBRO AUXILIAR DE CAJA",
       "tipo_documental": "Libro contable auxiliar",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -763,7 +914,10 @@
       "serie": "CERTIFICADOS",
       "subserie": "CERTIFICADOS DE INGRESOS Y RETENCIONES",
       "tipo_documental": "Certificado",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 3,
+      "disposicion_final": "E"
     }
   },
   {
@@ -776,7 +930,10 @@
       "serie": "CERTIFICADOS",
       "subserie": "CERTIFICADOS DE RETENCIÓN EN LA FUENTE",
       "tipo_documental": "Certificado",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -789,7 +946,10 @@
       "serie": "COMPROBANTES CONTABLES",
       "subserie": "COMPROBANTES DE CAUSACIÓN",
       "tipo_documental": "Comprobante",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "S"
     }
   },
   {
@@ -802,7 +962,10 @@
       "serie": "COMPROBANTES CONTABLES",
       "subserie": "NOTAS DE AJUSTES CONTABLES",
       "tipo_documental": "Comprobante",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "S"
     }
   },
   {
@@ -815,7 +978,10 @@
       "serie": "CONCILIACIONES BANCARIAS",
       "subserie": "",
       "tipo_documental": "Conciliación bancaria",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 2,
+      "disposicion_final": "E"
     }
   },
   {
@@ -828,7 +994,10 @@
       "serie": "DECLARACIONES TRIBUTARIAS",
       "subserie": "DECLARACIÓN CREE",
       "tipo_documental": "Declaración tributaria",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -841,7 +1010,10 @@
       "serie": "DECLARACIONES TRIBUTARIAS",
       "subserie": "DECLARACIÓN DE IMPUESTO A LA RIQUEZA",
       "tipo_documental": "Declaración tributaria",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -854,7 +1026,10 @@
       "serie": "DECLARACIONES TRIBUTARIAS",
       "subserie": "DECLARACIÓN DE INDUSTRIA Y COMERCIO",
       "tipo_documental": "Declaración tributaria",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -867,7 +1042,10 @@
       "serie": "DECLARACIONES TRIBUTARIAS",
       "subserie": "DECLARACIÓN DE RENTA COMPLEMENTARIA",
       "tipo_documental": "Declaración tributaria",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -880,7 +1058,10 @@
       "serie": "DECLARACIONES TRIBUTARIAS",
       "subserie": "DECLARACIÓN DE RETENCIÓN EN LA FUENTE",
       "tipo_documental": "Declaración tributaria",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -893,7 +1074,10 @@
       "serie": "DECLARACIONES TRIBUTARIAS",
       "subserie": "DECLARACIÓN ICA",
       "tipo_documental": "Declaración tributaria",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -906,7 +1090,10 @@
       "serie": "DECLARACIONES TRIBUTARIAS",
       "subserie": "DECLARACIÓN IMPUESTO PREDIAL UNIFICADO",
       "tipo_documental": "Declaración tributaria",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -919,7 +1106,10 @@
       "serie": "DECLARACIONES TRIBUTARIAS",
       "subserie": "DECLARACIÓN IVA",
       "tipo_documental": "Declaración tributaria",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "S"
     }
   },
   {
@@ -932,7 +1122,10 @@
       "serie": "ESTADOS FINANCIEROS",
       "subserie": "",
       "tipo_documental": "Estado financiero",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -945,7 +1138,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES A ORGANISMOS DE VIGILANCIA Y CONTROL",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -958,7 +1154,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES DE GESTIÓN",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -971,7 +1170,10 @@
       "serie": "INVENTARIOS",
       "subserie": "INVENTARIOS DE BIENES INMUEBLES, MUEBLES Y EQUIPOS",
       "tipo_documental": "Inventario",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -984,7 +1186,10 @@
       "serie": "LIBROS CONTABLES PRINCIPALES",
       "subserie": "LIBRO DE PRESUPUESTO ANUAL",
       "tipo_documental": "Libro contable",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -997,7 +1202,10 @@
       "serie": "LIBROS CONTABLES PRINCIPALES",
       "subserie": "LIBRO DIARIO",
       "tipo_documental": "Libro contable",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -1010,7 +1218,10 @@
       "serie": "LIBROS CONTABLES PRINCIPALES",
       "subserie": "LIBRO INVENTARIOS Y BALANCES",
       "tipo_documental": "Libro contable",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1023,7 +1234,10 @@
       "serie": "LIBROS CONTABLES PRINCIPALES",
       "subserie": "LIBRO MAYOR Y DE BALANCE",
       "tipo_documental": "Libro contable",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1036,7 +1250,10 @@
       "serie": "ACTAS",
       "subserie": "ACTAS DE COMITÉ DE CONVIVENCIA LABORAL",
       "tipo_documental": "Acta",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 8,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1049,7 +1266,10 @@
       "serie": "ACTAS",
       "subserie": "ACTAS DE COMITÉ DEL SISTEMA INTEGRADO DE GESTIÓN",
       "tipo_documental": "Acta",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 8,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1062,7 +1282,10 @@
       "serie": "ACTAS",
       "subserie": "ACTAS DE COMITÉ PARITARIO DE SEGURIDAD Y SALUD EN EL TRABAJO",
       "tipo_documental": "Acta",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 8,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1075,7 +1298,10 @@
       "serie": "AUDITORIAS",
       "subserie": "AUDITORÍAS DEL SISTEMA INTEGRADO DE GESTIÓN",
       "tipo_documental": "Auditoría",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 2,
+      "disposicion_final": "S"
     }
   },
   {
@@ -1088,7 +1314,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES DE ACCIDENTES E INCIDENTES EN EL TRABAJO",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "MD"
     }
   },
   {
@@ -1101,7 +1330,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES DE AUSENTISMO LABORAL",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -1114,7 +1346,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES DE SEGURIDAD Y RIESGOS LABORALES",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "MD"
     }
   },
   {
@@ -1127,7 +1362,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES DEL SISTEMA INTEGRADO DE GESTIÓN",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "MD"
     }
   },
   {
@@ -1140,7 +1378,10 @@
       "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
       "subserie": "CERTIFICADOS DE CALIDAD",
       "tipo_documental": "Instrumento",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1153,7 +1394,10 @@
       "serie": "INSTRUMENTOS DE INFORMACIÓN Y CONSULTA",
       "subserie": "REGLAMENTO DE HIGIENE Y SEGURIDAD INDUSTRIAL",
       "tipo_documental": "Instrumento",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1166,7 +1410,10 @@
       "serie": "MANUALES",
       "subserie": "MANUAL DEL SISTEMA INTEGRADO DE GESTIÓN",
       "tipo_documental": "Manual",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1179,7 +1426,10 @@
       "serie": "PLANES",
       "subserie": "PLAN ANUAL DE TRABAJO EN SEGURIDAD Y SALUD EN EL TRABAJO",
       "tipo_documental": "Plan",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1192,7 +1442,10 @@
       "serie": "PLANES",
       "subserie": "PLAN DE AUDITORIA INTERNA DEL SISTEMA INTEGRADO DE GESTIÓN",
       "tipo_documental": "Plan",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1205,7 +1458,10 @@
       "serie": "PLANES",
       "subserie": "PLAN DE EMERGENCIAS",
       "tipo_documental": "Plan",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1218,7 +1474,10 @@
       "serie": "PLANES",
       "subserie": "PLAN DE MANEJO AMBIENTAL",
       "tipo_documental": "Plan",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1231,7 +1490,10 @@
       "serie": "PROGRAMAS",
       "subserie": "PROGRAMAS DE BIENESTAR SOCIAL",
       "tipo_documental": "Programa",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "S"
     }
   },
   {
@@ -1244,7 +1506,10 @@
       "serie": "PROGRAMAS",
       "subserie": "PROGRAMAS DE CAPACITACIÓN Y FORMACIÓN",
       "tipo_documental": "Programa",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "S"
     }
   },
   {
@@ -1257,7 +1522,10 @@
       "serie": "PROGRAMAS",
       "subserie": "PROGRAMAS DE VIGILANCIA EPIDEMIOLÓGICA",
       "tipo_documental": "Programa",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1270,7 +1538,10 @@
       "serie": "ACTAS",
       "subserie": "ACTAS DE COMITÉ INTERNO DE ARCHIVO",
       "tipo_documental": "Acta",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 8,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1283,7 +1554,10 @@
       "serie": "COMPROBANTES DE ALMACÉN",
       "subserie": "COMPROBANTES DE ENTRADA DE ALMACÉN",
       "tipo_documental": "Comprobante",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -1296,7 +1570,10 @@
       "serie": "COMPROBANTES DE ALMACÉN",
       "subserie": "COMPROBANTES DE SALIDA DE ALMACÉN",
       "tipo_documental": "Comprobante",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -1309,7 +1586,10 @@
       "serie": "INSTRUMENTOS ARCHIVÍSTICOS",
       "subserie": "CUADRO DE CLASIFICACIÓN DOCUMENTAL",
       "tipo_documental": "Instrumento",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1322,7 +1602,10 @@
       "serie": "INSTRUMENTOS ARCHIVÍSTICOS",
       "subserie": "INVENTARIOS DOCUMENTALES",
       "tipo_documental": "Instrumento",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1335,7 +1618,10 @@
       "serie": "INSTRUMENTOS ARCHIVÍSTICOS",
       "subserie": "TABLAS DE RETENCIÓN DOCUMENTAL",
       "tipo_documental": "Instrumento",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1348,7 +1634,10 @@
       "serie": "INSTRUMENTOS ARCHIVÍSTICOS",
       "subserie": "TABLAS DE VALORACIÓN DOCUMENTAL",
       "tipo_documental": "Instrumento",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1361,7 +1650,10 @@
       "serie": "INVENTARIOS",
       "subserie": "INVENTARIOS DE ELEMENTOS DE CONSUMO",
       "tipo_documental": "Inventario",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "E"
     }
   },
   {
@@ -1374,7 +1666,10 @@
       "serie": "CERTIFICADOS",
       "subserie": "CERTIFICADOS DE PAZ Y SALVO DE TRANSGRESIONES",
       "tipo_documental": "Certificado",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 3,
+      "disposicion_final": "E"
     }
   },
   {
@@ -1387,7 +1682,10 @@
       "serie": "COMPROBANTES DE RECAUDO DE TASA DE USO",
       "subserie": "",
       "tipo_documental": "Comprobante",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 4,
+      "disposicion_final": "E"
     }
   },
   {
@@ -1400,7 +1698,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES A ORGANISMOS DE VIGILANCIA Y CONTROL",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1413,7 +1714,10 @@
       "serie": "INFORMES",
       "subserie": "INFORMES DE GESTIÓN",
       "tipo_documental": "Informe",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "E"
     }
   },
   {
@@ -1426,7 +1730,10 @@
       "serie": "MANUALES",
       "subserie": "MANUAL OPERATIVO",
       "tipo_documental": "Manual",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 9,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1439,7 +1746,10 @@
       "serie": "PLANES",
       "subserie": "PLAN DE MANDO UNIFICADO",
       "tipo_documental": "Plan",
-      "descripcion": ""
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 5,
+      "disposicion_final": "CT"
     }
   },
   {
@@ -1449,10 +1759,13 @@
       "codigo": "120.31",
       "sesion": "Dirección Operativa",
       "subsesion": "",
-      "serie": "PLANES",
-      "subserie": "PETICIONES, QUEJAS, RECLAMOS, SUGERENCIAS Y DENUNCIAS",
-      "tipo_documental": "Plan",
-      "descripcion": ""
+      "serie": "PETICIONES, QUEJAS, RECLAMOS, SUGERENCIAS Y DENUNCIAS",
+      "subserie": "",
+      "tipo_documental": "PQRS",
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 4,
+      "disposicion_final": "S"
     }
   },
   {
@@ -1462,15 +1775,50 @@
       "codigo": "120.37",
       "sesion": "Dirección Operativa",
       "subsesion": "",
-      "serie": "PLANES",
-      "subserie": "REGISTROS DE COMPROBANTES DE TRANSGRESIÓN",
-      "tipo_documental": "Plan",
-      "descripcion": ""
+      "serie": "REGISTROS DE COMPROBANTES DE TRANSGRESIÓN",
+      "subserie": "",
+      "tipo_documental": "Registro de consecutivo",
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 4,
+      "disposicion_final": "S"
     }
   },
   {
     "model": "documentos.trdregistro",
     "pk": 114,
+    "fields": {
+      "codigo": "120.38",
+      "sesion": "Dirección Operativa",
+      "subsesion": "",
+      "serie": "REGISTROS DE CONTROL DE EMPRESAS DE TRANSPORTE AFILIADAS",
+      "subserie": "",
+      "tipo_documental": "Registro de habilitaciones",
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 4,
+      "disposicion_final": "S"
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 115,
+    "fields": {
+      "codigo": "120.40",
+      "sesion": "Dirección Operativa",
+      "subsesion": "",
+      "serie": "REGISTROS DEL PARQUE AUTOMOTOR HABILITADO EMPRESAS DE TRANSPORTE",
+      "subserie": "",
+      "tipo_documental": "Registro datos",
+      "descripcion": "",
+      "anios_gestion": 1,
+      "anios_central": 4,
+      "disposicion_final": "S"
+    }
+  },
+  {
+    "model": "documentos.trdregistro",
+    "pk": 116,
     "fields": {
       "codigo": "120.42",
       "sesion": "Dirección Operativa",

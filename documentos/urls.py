@@ -1,6 +1,7 @@
 # documentos/urls.py
 from django.urls import path
 from . import views, api_trd_views, views_ajax
+from .views import ajax_desactivar_documentos, confirmar_desactivacion
 from .views_backup import backup_database,listar_backups, restaurar_backup, eliminar_backup
 
 urlpatterns = [
@@ -16,4 +17,6 @@ urlpatterns = [
     path('backups/restaurar/<str:filename>/', restaurar_backup, name='restaurar_backup'),
     path('ajax/busqueda/', views_ajax.ajax_busqueda_documentos, name='ajax_busqueda_documentos'),
     path('eliminar/<str:filename>/', eliminar_backup, name='eliminar_backup'),
+    path('ajax/desactivar/', ajax_desactivar_documentos, name='ajax_desactivar_documentos'),
+    path('ajax/confirmar_desactivacion/', confirmar_desactivacion, name='confirmar_desactivacion'),
 ]
