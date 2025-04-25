@@ -1,6 +1,7 @@
 from django import forms
 from django.core.validators import RegexValidator
 from .models import Documento
+from .models_trd import TRDRegistro
 import hashlib
 
 codigo_validator = RegexValidator(
@@ -9,6 +10,11 @@ codigo_validator = RegexValidator(
 )
 
 class DocumentoForm(forms.ModelForm):
+    tipo_documental = forms.ChoiceField(
+        choices=[],
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+
     class Meta:
         model = Documento
         fields = [
@@ -30,18 +36,26 @@ class DocumentoForm(forms.ModelForm):
             'subserie': forms.TextInput(attrs={'class': 'form-control'}),
             'sesion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej. Gerencia o Dirección Administrativa'}),
             'subsesion': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej. Oficina Jurídica'}),
-            'tipo_documental': forms.Select(attrs={'class': 'form-control'}),
             'archivo': forms.ClearableFileInput(attrs={'class': 'form-control'}),
             'ruta_fisica': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej. Módulo 2, Caja 5, Carpeta 12'})
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Cargar dinámicamente los valores únicos de tipo_documental desde TRDRegistro
+        tipos = TRDRegistro.objects.values_list('tipo_documental', flat=True).distinct()
+        self.fields['tipo_documental'].choices = [(t, t) for t in tipos if t]
+
     def clean_archivo(self):
         archivo = self.cleaned_data.get('archivo')
 
+        # Si no hay archivo nuevo subido y es edición, no validar
         if not archivo:
+            if self.instance and self.instance.pk:
+                return self.instance.archivo
             raise forms.ValidationError("Debe seleccionar un archivo.")
 
-        # Verificar que el archivo sea un PDF
+        # Validar que sea PDF
         ext = archivo.name.split('.')[-1].lower()
         if ext != 'pdf':
             raise forms.ValidationError("El archivo debe ser un PDF.")
@@ -53,8 +67,12 @@ class DocumentoForm(forms.ModelForm):
                 hasher.update(chunk)
             archivo_hash = hasher.hexdigest()
 
-            # Verificar si el hash ya existe en la base de datos
-            if Documento.objects.filter(hash_sha256=archivo_hash).exists():
+            # Excluir el documento actual de la búsqueda si se está editando
+            documento_existente = Documento.objects.filter(hash_sha256=archivo_hash)
+            if self.instance and self.instance.pk:
+                documento_existente = documento_existente.exclude(pk=self.instance.pk)
+
+            if documento_existente.exists():
                 raise forms.ValidationError("Este archivo ya ha sido registrado en el sistema.")
 
         except Exception as e:
@@ -74,3 +92,10 @@ class DocumentoForm(forms.ModelForm):
         if folio_inicial is not None and folio_final is not None and folio_final < folio_inicial:
             self.add_error('folio_final', "El folio final no puede ser menor que el folio inicial.")
         return cleaned_data
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        instance.activo = True  # Siempre activo al crearlo
+        if commit:
+            instance.save()
+        return instance

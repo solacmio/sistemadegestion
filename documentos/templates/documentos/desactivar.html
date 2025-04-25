@@ -17,6 +17,7 @@
 
 <!-- Botón para Desactivar -->
 <button id="btn-desactivar" class="btn btn-danger mt-3" disabled>Desactivar Documentos</button>
+<button id="btn-generar-pdf" class="btn btn-secondary mt-3 ms-2" disabled>Generar Reporte PDF</button>
 
 {% endblock %}
 
@@ -24,40 +25,51 @@
 <script>
 document.getElementById('fecha').addEventListener('change', function() {
     let fecha = this.value;
+
+    console.log("📅 Fecha enviada:", fecha);
     if (fecha) {
         fetch("{% url 'ajax_desactivar_documentos' %}", {
             method: "POST",
             headers: { 
                 "X-CSRFToken": "{{ csrf_token }}", 
-                "Content-Type": "application/x-www-form-urlencoded" 
+                "Content-Type": "application/x-www-form-urlencoded"
             },
             body: `fecha=${fecha}`
         })
         .then(response => response.json())
         .then(data => {
-            console.log("📦 Datos recibidos del servidor:", data);
             let lista = document.getElementById("documentos-lista");
-            lista.innerHTML = data.html; 
 
-            if (data.success && Array.isArray(data.documentos) && data.documentos.length > 0) {
-                let tempContainer = document.createElement("div");
-                tempContainer.innerHTML = `{% include 'documentos/partials/_tarjetas_documentos.html' with docs=data.documentos only %}`;
-                lista.appendChild(tempContainer);
+            if (data.success) {
+                lista.innerHTML = data.html;
 
-                document.getElementById("btn-desactivar").disabled = false;
+                // 🔁 Activar el botón si hay contenido en la respuesta HTML
+                const tarjetas = lista.querySelectorAll('.card');
+                document.getElementById("btn-desactivar").disabled = tarjetas.length === 0;
+                document.getElementById("btn-generar-pdf").disabled = tarjetas.length === 0;
             } else {
-                lista.innerHTML = `<p class='text-danger text-center'>No hay documentos para desactivar.</p>`;
+                lista.innerHTML = `<p class='text-danger text-center'>Error: ${data.error || "No se pudieron cargar los documentos."}</p>`;
                 document.getElementById("btn-desactivar").disabled = true;
             }
         })
-        .catch(error => console.error("Error:", error));
+        .catch(error => {
+            console.error("Error en fetch:", error);
+            document.getElementById("documentos-lista").innerHTML = `<p class='text-danger text-center'>Error al procesar la solicitud.</p>`;
+            document.getElementById("btn-desactivar").disabled = true;
+        });
     }
 });
+
 // Evento para el botón de desactivación
 document.getElementById("btn-desactivar").addEventListener("click", function() {
-    if (documentosSeleccionados.length === 0) return;
-
     if (!confirm("¿Está seguro de que desea desactivar estos documentos?")) return;
+
+    // Obtener todos los IDs de documentos desde los atributos data-id de las tarjetas
+    let ids = Array.from(document.querySelectorAll('.clickable-card')).map(card =>
+        parseInt(card.getAttribute("data-doc-id"))
+    );
+
+    if (ids.length === 0) return alert("No hay documentos seleccionados.");
 
     fetch("{% url 'confirmar_desactivacion' %}", {
         method: "POST",
@@ -65,18 +77,49 @@ document.getElementById("btn-desactivar").addEventListener("click", function() {
             "X-CSRFToken": "{{ csrf_token }}",
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ documentos: documentosSeleccionados })
+        body: JSON.stringify({ documentos: ids })
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
             alert(data.message);
-            location.reload(); // Refrescar la vista
+            location.reload();
         } else {
             alert("Error: " + data.message);
         }
     })
-    .catch(error => console.error("Error:", error));
+    .catch(error => {
+        console.error("Error al confirmar desactivación:", error);
+        alert("Ocurrió un error al intentar desactivar los documentos.");
+    });
+});
+// Evento para el botón de generar PDF
+document.getElementById("btn-generar-pdf").addEventListener("click", function () {
+    let fecha = document.getElementById("fecha").value;
+    if (!fecha) return alert("Debe seleccionar una fecha válida.");
+
+    fetch("{% url 'ajax_generar_pdf_documentos_desactivables' %}", {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": "{{ csrf_token }}",
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `fecha=${fecha}`
+    })
+    .then(response => {
+        if (!response.ok) throw new Error("Error al generar PDF");
+        return response.blob();
+    })
+    .then(blob => {
+        let link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = `reporte_documentos_desactivables_${fecha}.pdf`;
+        link.click();
+    })
+    .catch(error => {
+        console.error("Error en la generación del PDF:", error);
+        alert("Ocurrió un error al generar el reporte PDF.");
+    });
 });
 </script>
 {% endblock %}

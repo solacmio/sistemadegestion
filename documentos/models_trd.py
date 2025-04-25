@@ -10,7 +10,7 @@ class TRDRegistro(models.Model):
     descripcion = models.TextField(blank=True, null=True, help_text="Descripción (opcional)")
     anios_gestion = models.IntegerField(default=0)
     anios_central = models.IntegerField(default=0)
-    disposicion_final = models.CharField(max_length=10, blank=True)
+    disposicion_final = models.CharField(max_length=10, blank=True, null=True)
 
     def __str__(self):
         return f"{self.codigo} - {self.serie} {self.subserie if self.subserie else ''}"

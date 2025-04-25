@@ -3,7 +3,7 @@
   {% for doc in docs %}
     <div class="col-md-4 mb-4">
       <!-- Tarjeta clickeable: al hacer clic se abre el modal -->
-      <div class="card h-100 clickable-card" data-bs-toggle="modal" data-bs-target="#modalDetalle{{ doc.id }}">
+      <div class="card h-100 clickable-card" data-doc-id="{{ doc.id }}" data-bs-toggle="modal" data-bs-target="#modalDetalle{{ doc.id }}">
         <div class="card-img-container" style="background-image: url('{% if doc.thumbnail %}{{ doc.thumbnail.url }}{% else %}{% static 'images/pdf-placeholder.png' %}{% endif %}');">
           <div class="card-img-overlay">
             <h5 class="card-title mb-0">{{ doc.nombre }}</h5>

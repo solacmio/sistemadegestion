@@ -1,44 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Crear Documento{% endblock %}
+{% block title %}Editar Documento{% endblock %}
 
 {% block extra_head %}
   <style>
-    /* Otros estilos que ya tengas... */
-
-    /* Estilo para el autocompletado de jQuery UI */
     .ui-autocomplete {
       position: absolute;
-      z-index: 1050; /* Asegura que se muestre sobre otros elementos */
-      background-color: #fff;  /* Fondo blanco */
-      border: 1px solid #ccc;  /* Borde sutil */
-      border-radius: 4px;      /* Bordes redondeados */
-      max-height: 200px;       /* Altura máxima */
-      overflow-y: auto;        /* Desplazamiento vertical */
+      z-index: 1050;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      max-height: 200px;
+      overflow-y: auto;
       overflow-x: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);  /* Sombra para dar sensación de "flotante" */
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
-    
+
     .ui-menu-item {
       padding: 5px 10px;
       cursor: pointer;
     }
-    
+
     .ui-menu-item:hover,
     .ui-menu-item:focus {
-      background-color: #f0f0f0;  /* Un gris claro para resaltar el item al pasar el mouse */
+      background-color: #f0f0f0;
     }
   </style>
 {% endblock %}
 
 {% block content %}
 <div class="container my-4">
-  <h2>Crear Documento</h2>
+  <h2>Editar Documento</h2>
   <form method="POST" enctype="multipart/form-data" id="documento-form">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Guardar Documento</button>
+    <button type="submit" class="btn btn-success">Actualizar Documento</button>
   </form>
 </div>
 {% endblock %}
@@ -53,9 +50,7 @@
           $.ajax({
             url: "{% url 'sugerencias_codigo' %}",
             dataType: "json",
-            data: {
-              term: request.term
-            },
+            data: { term: request.term },
             success: function(data) {
               response(data);
             },

@@ -51,7 +51,7 @@ try:
     python_exe = VENV_PYTHON if not IS_FROZEN else sys.executable
 
     server_process = subprocess.Popen(
-        [python_exe, "-u", "manage.py", "runserver", "192.168.1.210:8000"],
+        [python_exe, "manage.py", "runserver", "192.168.1.210:8000"],
         cwd=SERVER_PATH,
         shell=True
     )

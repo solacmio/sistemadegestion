@@ -58,8 +58,11 @@
     </div>
   </div>
   <div class="mt-2">
+    <input type="hidden" id="hidden_desactivados" name="mostrar_desactivados" value="{{ mostrar_desactivados|yesno:'on,' }}">
     <label>
-      <input type="checkbox" name="mostrar_desactivados" value="1" {% if request.GET.mostrar_desactivados %}checked{% endif %}>
+      <input type="checkbox" name="mostrar_desactivados"
+         {% if mostrar_desactivados %}checked{% endif %}
+         onchange="document.getElementById('hidden_desactivados').value = this.checked ? 'on' : ''; this.form.submit();">
       Mostrar documentos desactivados
     </label>
   </div>
@@ -77,9 +80,10 @@
   $(document).ready(function(){
       $("#search-input").on("keyup", function(){
           var query = $(this).val();
+          var mostrarDesactivados = $('input[name="mostrar_desactivados"]').is(':checked');
           $.ajax({
               url: "{% url 'ajax_busqueda_documentos' %}",
-              data: { 'q': query },
+              data: { 'q': query, 'mostrar_desactivados': mostrarDesactivados ? 'on' : ''},
               success: function(data) {
                   $("#documentos-table").html(data);
               },

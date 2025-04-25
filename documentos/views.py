@@ -9,18 +9,21 @@ from django.views.decorators.http import require_POST
 from django.http import HttpResponseRedirect, JsonResponse
 from logs.models import Log
 from django.utils.dateparse import parse_date
-from datetime import timedelta, date
+from datetime import datetime
 from .models_trd import TRDRegistro
 from django.template.loader import render_to_string
 import logging
 import os
 from django.conf import settings
 import json
-import builtins
+from dateutil.relativedelta import relativedelta
 
-builtins.print = lambda *args, **kwargs: __import__('sys').__stdout__.write(' '.join(map(str, args)) + '\n')
+# Configurar el logger
+logger = logging.getLogger("django")
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
 def obtener_version():
-    version_file = os.path.join(settings.BASE_DIR, "version.txt")
+    version_file = os.path.join(settings.BASE_DIR, "version.json")
     if os.path.exists(version_file):
         with open(version_file, "r") as f:
             return f.read().strip()
@@ -31,19 +34,16 @@ def lista_documentos(request):
     query = request.GET.get('q', '')
     fecha_inicial = request.GET.get('fecha_inicial', '')
     fecha_final = request.GET.get('fecha_final', '')
-    
-    # Empezamos con todos los documentos ordenados por la fecha de creación (más recientes primero)
-    docs = Documento.objects.all().order_by('-created_at')
-    
-    
-    mostrar_desactivados = request.GET.get('mostrar_desactivados', False)
+    mostrar_desactivados = request.GET.get('mostrar_desactivados') == 'on'
 
-    docs = Documento.objects.filter(activo=True)  # Solo documentos activos
+    # Base queryset
+    docs = Documento.objects.all()
 
-    if mostrar_desactivados:
-        docs = Documento.objects.all()  # Mostrar todos
-    
-    # Filtrar por una cadena en varios campos
+    # Mostrar solo activos si no se solicita lo contrario
+    if not mostrar_desactivados:
+        docs = docs.filter(activo=True)
+
+    # Búsqueda textual
     if query:
         docs = docs.filter(
             Q(codigo__icontains=query) |
@@ -51,37 +51,35 @@ def lista_documentos(request):
             Q(descripcion__icontains=query) |
             Q(ruta_fisica__icontains=query)
         )
-    
-    # Filtrar por fechas (si se proporcionan)
+
+    # Filtros por fecha
     if fecha_inicial:
         docs = docs.filter(fecha_inicial__gte=fecha_inicial)
     if fecha_final:
         docs = docs.filter(fecha_final__lte=fecha_final)
-        
-    if not request.GET.get('mostrar_desactivados'):
-        docs = docs.filter(activo=True)
-    
+
     context = {
-        'docs': docs,
+        'docs': docs.order_by('-created_at'),
         'q': query,
         'fecha_inicial': fecha_inicial,
         'fecha_final': fecha_final,
+        'mostrar_desactivados': mostrar_desactivados,
     }
-    
-    # Detectar si la solicitud es AJAX.
+
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-        # Renderiza solo el cuerpo de la tabla.
         return render(request, 'documentos/partials/_documentos_table.html', context)
-    
+
     return render(request, 'documentos/lista.html', context)
+
+
+
 
 @login_required
 def detalle_documento(request, id):
     doc = get_object_or_404(Documento, id=id)
     return render(request, 'documentos/partials/_detalles_documento.html', {'doc': doc})
 
-# Configurar el logger
-logger = logging.getLogger(__name__)
+
 @login_required
 def crear_documento(request):
     if request.method == 'POST':
@@ -130,67 +128,6 @@ def mostrar_version(request):
         version_data = json.load(f)
     return render(request, "base.html", {"version": version_data["version"]})
 
-
-@login_required
-def ajax_desactivar_documentos(request):
-    if request.method == "POST":
-        fecha_str = request.POST.get("fecha")
-        if not fecha_str:
-            return JsonResponse({"success": False, "error": "Fecha no proporcionada"})
-
-        fecha_limite = parse_date(fecha_str)
-        documentos_a_desactivar = []
-
-        documentos = Documento.objects.filter(activo=True, fecha_final__lte=fecha_limite)
-        print(f"📅 Fecha límite: {fecha_limite} - Documentos filtrados por fecha_final ≤ fecha:", documentos.count())
-
-        for doc in documentos:
-            print(f"\n📄 Analizando documento: {doc.nombre} (Código: {doc.codigo})")
-            print(f"Serie: {doc.serie} | Subserie: {doc.subserie} | Tipo documental: {doc.tipo_documental}")
-
-            trd_qs = TRDRegistro.objects.filter(
-                serie=doc.serie.strip(),
-                tipo_documental=doc.tipo_documental
-            )
-
-            if doc.subserie:
-                trd_qs = trd_qs.filter(subserie=doc.subserie.strip())
-            else:
-                trd_qs = trd_qs.filter(subserie='')
-
-            trd = trd_qs.first()
-            print(f"🔎 TRD encontrada: {trd}")
-
-            if trd and doc.fecha_final:
-                total_dias_retencion = (trd.anios_gestion + trd.anios_central) * 365
-                fecha_destruccion = doc.fecha_final + timedelta(days=total_dias_retencion)
-
-                print(f"📅 Fecha final: {doc.fecha_final} + {total_dias_retencion} días = {fecha_destruccion}")
-                print(f"📅 Comparando con fecha límite: {fecha_limite}")
-
-                if fecha_destruccion <= fecha_limite:
-                    print("✅ Documento para desactivar")
-                    documentos_a_desactivar.append(doc)
-                else:
-                    print("❌ Aún no debe desactivarse")
-            else:
-                print("⚠️ No se encontró TRD válida o fecha final no establecida")
-
-        print("✅ Documentos listos para desactivar:", [d.id for d in documentos_a_desactivar])
-
-        html = render_to_string("documentos/partials/_tarjetas_documentos.html", {
-            "docs": documentos_a_desactivar,
-            "request": request
-        })
-
-        return JsonResponse({
-            "success": True,
-            "documentos": [doc.id for doc in documentos_a_desactivar],
-            "html": html
-        })
-
-    return JsonResponse({"success": False, "error": "Método no permitido"})
-
 @require_POST
 @login_required
 def confirmar_desactivacion(request):
@@ -198,14 +135,29 @@ def confirmar_desactivacion(request):
         data = json.loads(request.body)
         ids = data.get("documentos", [])
 
+        fecha_str = data.get("fecha")
+        if not isinstance(fecha_str, str) or not fecha_str.strip():
+            fecha_limite = None
+        else:
+            fecha_limite = parse_date(fecha_str)
+
         if not ids:
             return JsonResponse({"success": False, "message": "No se enviaron documentos."})
 
         docs = Documento.objects.filter(id__in=ids, activo=True)
         count = docs.update(activo=False)
 
+        # Registro en logs (NUEVO)
+        for doc in docs:
+            Log.objects.create(
+                usuario=request.user,
+                accion=f"Desactivación documento {doc.codigo}",
+                detalles=f"Motivo: Cumplió retención (Fecha límite: {fecha_limite})"
+            )
+
         return JsonResponse({"success": True, "message": f"{count} documentos desactivados correctamente."})
 
     except Exception as e:
         return JsonResponse({"success": False, "message": str(e)})
+
 ...
