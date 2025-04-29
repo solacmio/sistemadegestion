@@ -5,13 +5,11 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Documento
 from .models_trd import TRDRegistro
 from django.http import JsonResponse, FileResponse
-
-# 📄 Importaciones para PDF
 from io import BytesIO
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
-# 🔁 Función auxiliar para filtrar documentos que pueden desactivarse
+# Función auxiliar para filtrar documentos que pueden desactivarse
 def _filtrar_documentos_para_desactivacion(fecha_limite):
     documentos_filtrados = Documento.objects.filter(fecha_final__lte=fecha_limite, activo=True)
     trds = {trd.tipo_documental: trd for trd in TRDRegistro.objects.all()}
@@ -20,13 +18,14 @@ def _filtrar_documentos_para_desactivacion(fecha_limite):
     for doc in documentos_filtrados:
         trd = trds.get(doc.tipo_documental)
         if trd:
-            anios_totales = trd.anios_gestion + trd.anios_central
-            fecha_retencion = doc.fecha_final.replace(year=doc.fecha_final.year + anios_totales)
-            if fecha_retencion <= fecha_limite:
-                documentos_a_incluir.append(doc)
+            if trd.disposicion_final and trd.anios_gestion is not None and trd.anios_central is not None:
+                anios_totales = trd.anios_gestion + trd.anios_central
+                fecha_retencion = doc.fecha_final.replace(year=doc.fecha_final.year + anios_totales)
+                if fecha_retencion <= fecha_limite:
+                    documentos_a_incluir.append(doc)
     return documentos_a_incluir
 
-# 📄 Función para generar PDF de los documentos listos para desactivar
+# Función para generar PDF de los documentos listos para desactivar
 def generar_pdf_documentos(documentos):
     buffer = BytesIO()
     p = canvas.Canvas(buffer, pagesize=letter)
@@ -58,7 +57,7 @@ def generar_pdf_documentos(documentos):
     buffer.seek(0)
     return buffer
 
-# ✅ AJAX búsqueda con filtros
+# AJAX búsqueda con filtros
 def ajax_busqueda_documentos(request):
     q = request.GET.get('q', '')
     mostrar_desactivados = request.GET.get('mostrar_desactivados') == 'on'
@@ -78,10 +77,11 @@ def ajax_busqueda_documentos(request):
 
     return render(request, 'documentos/partials/_tarjetas_documentos.html', {'docs': documentos})
 
-# ✅ AJAX actual sin tocar (intacto)
+# AJAX desactivar documentos
 @csrf_exempt
 def ajax_desactivar_documentos(request):
     if request.method == "POST":
+        
         fecha = request.POST.get("fecha")
 
         if fecha:
@@ -93,16 +93,9 @@ def ajax_desactivar_documentos(request):
             documentos_filtrados = Documento.objects.filter(fecha_final__lte=fecha_limite, activo=True)
             trds = {trd.tipo_documental: trd for trd in TRDRegistro.objects.all()}
 
-            documentos_a_mostrar = []
-            for doc in documentos_filtrados:
-                trd = trds.get(doc.tipo_documental)
-                if trd:
-                    anios_totales = trd.anios_gestion + trd.anios_central
-                    fecha_retencion = doc.fecha_final.replace(year=doc.fecha_final.year + anios_totales)
-                    if fecha_retencion <= fecha_limite:
-                        documentos_a_mostrar.append(doc)
+            documentos_a_mostrar = _filtrar_documentos_para_desactivacion(fecha_limite)
 
-            html_rendered = render(request, 'documentos/partials/_tarjetas_documentos.html', {"docs": documentos_a_mostrar}).content.decode('utf-8')
+            html_rendered = render(request, 'documentos/partials/_tarjetas_documentos.html', {"docs": documentos_a_mostrar, 'desactivar_mode': True}).content.decode('utf-8')
 
             return JsonResponse({
                 "success": True,
@@ -112,7 +105,7 @@ def ajax_desactivar_documentos(request):
 
     return JsonResponse({"success": False, "html": ""})
 
-# ✅ NUEVO: AJAX para generar el PDF sin afectar el anterior
+# AJAX para generar el PDF
 @csrf_exempt
 def ajax_generar_pdf_documentos_desactivables(request):
     if request.method == "POST":

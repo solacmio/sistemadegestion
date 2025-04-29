@@ -10,6 +10,14 @@
     <input type="date" id="fecha" class="form-control">
 </div>
 
+<!-- Checkbox para seleccionar todos -->
+<div id="seleccionar-todos-container" class="form-check mb-3" style="display: none;">
+    <input class="form-check-input" type="checkbox" id="seleccionar-todos">
+    <label class="form-check-label" for="seleccionar-todos">
+        Seleccionar Todos
+    </label>
+</div>
+
 <!-- Contenedor donde se mostrarán los documentos -->
 <div id="documentos-lista" class="row">
     <p class="text-center">Seleccione una fecha para ver los documentos.</p>
@@ -26,7 +34,7 @@
 document.getElementById('fecha').addEventListener('change', function() {
     let fecha = this.value;
 
-    console.log("📅 Fecha enviada:", fecha);
+    console.log("Fecha enviada:", fecha);
     if (fecha) {
         fetch("{% url 'ajax_desactivar_documentos' %}", {
             method: "POST",
@@ -39,37 +47,45 @@ document.getElementById('fecha').addEventListener('change', function() {
         .then(response => response.json())
         .then(data => {
             let lista = document.getElementById("documentos-lista");
+            let seleccionarTodosContainer = document.getElementById("seleccionar-todos-container");
 
             if (data.success) {
                 lista.innerHTML = data.html;
 
-                // 🔁 Activar el botón si hay contenido en la respuesta HTML
                 const tarjetas = lista.querySelectorAll('.card');
-                document.getElementById("btn-desactivar").disabled = tarjetas.length === 0;
-                document.getElementById("btn-generar-pdf").disabled = tarjetas.length === 0;
+                const hayTarjetas = tarjetas.length > 0;
+                
+                document.getElementById("btn-desactivar").disabled = !hayTarjetas;
+                document.getElementById("btn-generar-pdf").disabled = !hayTarjetas;
+
+                // Mostrar u ocultar el "Seleccionar Todos"
+                seleccionarTodosContainer.style.display = hayTarjetas ? 'block' : 'none';
             } else {
                 lista.innerHTML = `<p class='text-danger text-center'>Error: ${data.error || "No se pudieron cargar los documentos."}</p>`;
                 document.getElementById("btn-desactivar").disabled = true;
+                document.getElementById("btn-generar-pdf").disabled = true;
+                seleccionarTodosContainer.style.display = 'none';
             }
         })
         .catch(error => {
             console.error("Error en fetch:", error);
             document.getElementById("documentos-lista").innerHTML = `<p class='text-danger text-center'>Error al procesar la solicitud.</p>`;
             document.getElementById("btn-desactivar").disabled = true;
+            document.getElementById("btn-generar-pdf").disabled = true;
+            document.getElementById("seleccionar-todos-container").style.display = 'none';
         });
     }
 });
 
 // Evento para el botón de desactivación
 document.getElementById("btn-desactivar").addEventListener("click", function() {
-    if (!confirm("¿Está seguro de que desea desactivar estos documentos?")) return;
+    if (!confirm("¿Está seguro de que desea desactivar los documentos seleccionados?")) return;
 
-    // Obtener todos los IDs de documentos desde los atributos data-id de las tarjetas
-    let ids = Array.from(document.querySelectorAll('.clickable-card')).map(card =>
-        parseInt(card.getAttribute("data-doc-id"))
+    let ids = Array.from(document.querySelectorAll('.seleccion-documento:checked')).map(checkbox =>
+        parseInt(checkbox.getAttribute("data-doc-id"))
     );
 
-    if (ids.length === 0) return alert("No hay documentos seleccionados.");
+    if (ids.length === 0) return alert("Debe seleccionar al menos un documento para desactivar.");
 
     fetch("{% url 'confirmar_desactivacion' %}", {
         method: "POST",
@@ -93,6 +109,7 @@ document.getElementById("btn-desactivar").addEventListener("click", function() {
         alert("Ocurrió un error al intentar desactivar los documentos.");
     });
 });
+
 // Evento para el botón de generar PDF
 document.getElementById("btn-generar-pdf").addEventListener("click", function () {
     let fecha = document.getElementById("fecha").value;
@@ -120,6 +137,29 @@ document.getElementById("btn-generar-pdf").addEventListener("click", function ()
         console.error("Error en la generación del PDF:", error);
         alert("Ocurrió un error al generar el reporte PDF.");
     });
+});
+
+// Función para verificar si hay documentos seleccionados
+function actualizarEstadoBoton() {
+    const seleccionados = document.querySelectorAll('.seleccion-documento:checked');
+    const btnDesactivar = document.getElementById('btn-desactivar');
+    btnDesactivar.disabled = seleccionados.length === 0;
+}
+
+// Evento para "Seleccionar Todos"
+document.getElementById('seleccionar-todos').addEventListener('change', function() {
+    const todosCheckboxes = document.querySelectorAll('.seleccion-documento');
+    todosCheckboxes.forEach(checkbox => {
+        checkbox.checked = this.checked;
+    });
+    actualizarEstadoBoton();
+});
+
+// Delegar evento a cada checkbox de documento para actualizar botón dinámicamente
+document.addEventListener('change', function(e) {
+    if (e.target.classList.contains('seleccion-documento')) {
+        actualizarEstadoBoton();
+    }
 });
 </script>
 {% endblock %}

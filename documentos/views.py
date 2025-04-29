@@ -9,9 +9,6 @@ from django.views.decorators.http import require_POST
 from django.http import HttpResponseRedirect, JsonResponse
 from logs.models import Log
 from django.utils.dateparse import parse_date
-from datetime import datetime
-from .models_trd import TRDRegistro
-from django.template.loader import render_to_string
 import logging
 import os
 from django.conf import settings
