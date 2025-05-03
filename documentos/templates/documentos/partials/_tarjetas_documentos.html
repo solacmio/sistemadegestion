@@ -2,41 +2,54 @@
 <div class="row">
   {% for doc in docs %}
     <div class="col-md-4 mb-4">
-      <!-- Tarjeta clickeable: al hacer clic se abre el modal -->
       <div class="position-relative h-100">
-        <!-- Checkbox de selección -->
         {% if desactivar_mode %}
           <input type="checkbox" class="form-check-input seleccion-documento" 
                  data-doc-id="{{ doc.id }}" checked
-                 style="position: absolute; top: 10px; left: 10px; z-index: 10;">
+                 style="position: absolute; top: 5px; left: 5px; z-index: 10;">
+          <div class="card h-100 tarjeta-desactivar" 
+               data-doc-id="{{ doc.id }}" 
+               data-bs-toggle="modal" data-bs-target="#modalDetalle{{ doc.id }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ doc.nombre }}</h5>
+              <p class="card-text">
+                <strong>Código:</strong> {{ doc.codigo }}<br>
+                <strong>Fecha Inicial:</strong> {{ doc.fecha_inicial }}<br>
+                <strong>Ruta Física:</strong> {{ doc.ruta_fisica|default:"Sin ruta" }}<br>
+                <strong>Serie:</strong> {{ doc.serie|default:"Sin serie" }}<br>
+                <strong>Subserie:</strong> {{ doc.subserie|default:"Sin subserie" }}
+              </p>
+            </div>
+          </div>
+        {% else %}
+          <input type="checkbox" class="form-check-input seleccion-documento" 
+                 data-doc-id="{{ doc.id }}" checked
+                 style="position: absolute; top: 10px; left: 10px; z-index: 10; display: none;">
+          <div class="card h-100 clickable-card {{ tarjeta_class }}" 
+               data-doc-id="{{ doc.id }}" 
+               data-bs-toggle="modal" data-bs-target="#modalDetalle{{ doc.id }}">
+            <div class="card-img-container" style="background-image: url('{% if doc.thumbnail %}{{ doc.thumbnail.url }}{% else %}{% static 'images/pdf-placeholder.png' %}{% endif %}');">
+              <div class="card-img-overlay">
+                <h5 class="card-title mb-0">{{ doc.nombre }}</h5>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                <strong>Código:</strong> {{ doc.codigo }}<br>
+                <strong>Fecha Inicial:</strong> {{ doc.fecha_inicial }}<br>
+                <strong>Ruta Física:</strong> {{ doc.ruta_fisica|default:"Sin ruta" }}
+              </p>
+            </div>
+            {% if request.user.is_authenticated and request.user.rol == 'Administrador' %}
+              <div class="card-footer">
+                <a href="{% url 'editar_documento' doc.id %}" class="btn btn-warning w-100">Editar</a>
+              </div>
+            {% endif %}
+          </div>
         {% endif %}
-        
-        <!-- Contenido de la tarjeta -->
-        <div class="card h-100 clickable-card" 
-             data-doc-id="{{ doc.id }}" 
-             data-bs-toggle="modal" data-bs-target="#modalDetalle{{ doc.id }}">
-          <div class="card-img-container" style="background-image: url('{% if doc.thumbnail %}{{ doc.thumbnail.url }}{% else %}{% static 'images/pdf-placeholder.png' %}{% endif %}');">
-            <div class="card-img-overlay">
-              <h5 class="card-title mb-0">{{ doc.nombre }}</h5>
-            </div>
-          </div>
-          <div class="card-body">
-            <p class="card-text">
-              <strong>Código:</strong> {{ doc.codigo }}<br>
-              <strong>Fecha Inicial:</strong> {{ doc.fecha_inicial }}<br>
-              <strong>Ruta Física:</strong> {{ doc.ruta_fisica }}
-            </p>
-          </div>
-          {% if request.user.is_authenticated and request.user.rol == 'Administrador' %}
-            <div class="card-footer">
-              <a href="{% url 'editar_documento' doc.id %}" class="btn btn-warning w-100">Editar</a>
-            </div>
-          {% endif %}
-        </div>
       </div>
     </div>
 
-    <!-- Incluir el modal de detalles para este documento -->
     {% include 'documentos/partials/_modal_detalle_documento.html' %}
   {% empty %}
     <div class="col-12">

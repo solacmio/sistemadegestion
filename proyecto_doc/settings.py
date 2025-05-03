@@ -46,10 +46,13 @@ INSTALLED_APPS = [
     'crum',
 ]
 
-# Configuración de sesiones
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-SESSION_COOKIE_AGE = 6000               # 10 minutos
-SESSION_SAVE_EVERY_REQUEST = True
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_COOKIE_AGE = 6000  
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Mantener como está
+SESSION_COOKIE_SECURE = False  # Cambia a True en producción con HTTPS
+SESSION_COOKIE_HTTPONLY = True
+# Opcional: Desactiva SESSION_SAVE_EVERY_REQUEST, ya que no es necesario con cookies
+SESSION_SAVE_EVERY_REQUEST = False
 
 AUTH_USER_MODEL = 'usuarios.CustomUser'
 LOGIN_URL = '/usuarios/login/'

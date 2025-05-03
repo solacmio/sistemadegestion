@@ -1,16 +1,75 @@
 {% extends 'base.html' %}
 {% block title %}Desactivar Documentos{% endblock %}
 
-{% block content %}
-<h1 class="mb-4">Desactivar Documentos</h1>
+{% block extra_head %}
+<style>
+  .desactivar-documentos {
+    margin-top: 20px; /* Ajustado para alinearse bajo el navbar */
+    z-index: 1; /* Debajo del navbar */
+  }
 
-<!-- Selector de Fecha -->
+  .desactivar-documentos .card {
+    background-color: #fff3cd; /* Amarillo claro */
+    border: 2px solid #dc3545; /* Borde rojo */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    opacity: 0; /* Para animación de entrada */
+    transform: translateY(20px); /* Para animación de entrada */
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  .desactivar-documentos .card:hover {
+    transform: scale(1.05) translateY(-5px); /* Efecto de acercamiento */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Sombra más pronunciada */
+  }
+  
+  .desactivar-documentos .card-body {
+    padding: 1.2rem;
+    padding-top: 1.5rem; /* Más espacio para el título */
+  }
+  
+  .desactivar-documentos .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #dc3545; /* Rojo */
+    margin-bottom: 0.5rem;
+  }
+  
+  .desactivar-documentos .card-text {
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.4;
+  }
+  
+  .desactivar-documentos .seleccion-documento {
+    background-color: #dc3545; /* Checkbox rojo */
+    border-color: #dc3545;
+  }
+
+  /* Animación de entrada para tarjetas */
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Ajuste para el título */
+  .titulo-desactivar {
+    padding-top: 1rem;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-4 titulo-desactivar">Desactivar Documentos</h1>
+
 <div class="mb-4">
     <label for="fecha" class="form-label">Seleccionar Fecha Límite:</label>
     <input type="date" id="fecha" class="form-control">
 </div>
 
-<!-- Checkbox para seleccionar todos -->
 <div id="seleccionar-todos-container" class="form-check mb-3" style="display: none;">
     <input class="form-check-input" type="checkbox" id="seleccionar-todos">
     <label class="form-check-label" for="seleccionar-todos">
@@ -18,15 +77,14 @@
     </label>
 </div>
 
-<!-- Contenedor donde se mostrarán los documentos -->
-<div id="documentos-lista" class="row">
-    <p class="text-center">Seleccione una fecha para ver los documentos.</p>
+<div class="desactivar-documentos">
+    <div id="documentos-lista" class="row">
+        <p class="text-center">Seleccione una fecha para ver los documentos.</p>
+    </div>
 </div>
 
-<!-- Botón para Desactivar -->
 <button id="btn-desactivar" class="btn btn-danger mt-3" disabled>Desactivar Documentos</button>
 <button id="btn-generar-pdf" class="btn btn-secondary mt-3 ms-2" disabled>Generar Reporte PDF</button>
-
 {% endblock %}
 
 {% block extra_js %}
@@ -57,9 +115,12 @@ document.getElementById('fecha').addEventListener('change', function() {
                 
                 document.getElementById("btn-desactivar").disabled = !hayTarjetas;
                 document.getElementById("btn-generar-pdf").disabled = !hayTarjetas;
-
-                // Mostrar u ocultar el "Seleccionar Todos"
                 seleccionarTodosContainer.style.display = hayTarjetas ? 'block' : 'none';
+
+                // Reaplicar animación a las tarjetas nuevas
+                tarjetas.forEach((card, index) => {
+                    card.style.animationDelay = `${index * 0.1}s`;
+                });
             } else {
                 lista.innerHTML = `<p class='text-danger text-center'>Error: ${data.error || "No se pudieron cargar los documentos."}</p>`;
                 document.getElementById("btn-desactivar").disabled = true;

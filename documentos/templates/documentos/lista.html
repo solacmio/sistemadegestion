@@ -5,94 +5,209 @@
 
 {% block extra_head %}
 <style>
-  /* Estilos para las tarjetas */
-  .card-img-container {
-    height: 200px; /* Altura fija para la vista previa */
+  .lista-documentos .documentos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .lista-documentos .search-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+  }
+  
+  .lista-documentos .search-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .lista-documentos .document-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .lista-documentos .document-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .lista-documentos .document-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  }
+  
+  .lista-documentos .card-img-container {
+    height: 180px;
     background-size: cover;
     background-position: center;
     position: relative;
   }
-  .card-img-overlay {
+  
+  .lista-documentos .card-img-overlay {
     position: absolute;
     bottom: 0;
-    width: 100%;
-    padding: 0.5rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-    color: black;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    padding: 1rem;
+    color: white;
   }
-  .clickable-card {
-    cursor: pointer;
+  
+  .lista-documentos .card-body {
+    padding: 1.25rem;
+    flex-grow: 1;
+  }
+  
+  .lista-documentos .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+  }
+  
+  .lista-documentos .card-meta {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+  }
+  
+  .lista-documentos .card-footer {
+    background: transparent;
+    border-top: none;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .lista-documentos .badge-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.7rem;
+    padding: 0.35em 0.65em;
+  }
+  
+  .lista-documentos .show-inactive-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .lista-documentos .show-inactive-checkbox input {
+    margin: 0;
   }
 </style>
 {% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Documentos</h1>
-
-{% if request.user.is_authenticated and request.user.rol == 'Administrador' %}
-  <div class="mb-4">
-    <a href="{% url 'crear_documento' %}" class="btn btn-success">Crear Nuevo Documento</a>
-    <a href="{% url 'desactivar_documentos' %}" class="btn btn-warning">Desactivar documentos por fecha</a>
-  </div>
-{% endif %}
-
-{% if request.user.is_superuser or request.user.is_staff or request.user.rol == 'Administrador' %}
-  <a href="{% url 'backup_database' %}" class="btn btn-outline-primary mb-3">Realizar copia de seguridad</a>
-  <a href="{% url 'listar_backups' %}" class="btn btn-outline-primary mb-3">Ver copias de seguridad</a>
-{% endif %}
-
-<!-- Campo de búsqueda -->
-<form method="GET" action="{% url 'lista_documentos' %}" class="mb-4">
-  <div class="row g-2">
-    <div class="col-md-4">
-      <input type="text" id="search-input" name="q" class="form-control" placeholder="Buscar por código, nombre, descripción, ruta..." value="{{ q }}">
-    </div>
-    <div class="col-md-3">
-      <input type="date" name="fecha_inicial" class="form-control" placeholder="Fecha inicial" value="{{ fecha_inicial }}">
-    </div>
-    <div class="col-md-3">
-      <input type="date" name="fecha_final" class="form-control" placeholder="Fecha final" value="{{ fecha_final }}">
-    </div>
-    <div class="col-md-2">
-      <button type="submit" class="btn btn-primary w-100">Buscar</button>
+<div class="container">
+  <div class="documentos-header">
+    <h1>Documentos</h1>
+    <div class="search-actions">
+      {% if request.user.is_authenticated and request.user.rol == 'Administrador' %}
+        <a href="{% url 'crear_documento' %}" class="btn btn-success">
+          <i class="bi bi-plus-circle"></i> Nuevo Documento
+        </a>
+        <a href="{% url 'desactivar_documentos' %}" class="btn btn-warning">
+          <i class="bi bi-archive"></i> Desactivar
+        </a>
+      {% endif %}
+      {% if request.user.is_superuser or request.user.is_staff or request.user.rol == 'Administrador' %}
+        <div class="btn-group">
+          <a href="{% url 'backup_database' %}" class="btn btn-outline-primary">
+            <i class="bi bi-database"></i> Copia
+          </a>
+          <a href="{% url 'listar_backups' %}" class="btn btn-outline-primary">
+            <i class="bi bi-list-check"></i> Ver copias
+          </a>
+        </div>
+      {% endif %}
     </div>
   </div>
-  <div class="mt-2">
-    <input type="hidden" id="hidden_desactivados" name="mostrar_desactivados" value="{{ mostrar_desactivados|yesno:'on,' }}">
-    <label>
-      <input type="checkbox" name="mostrar_desactivados"
-         {% if mostrar_desactivados %}checked{% endif %}
-         onchange="document.getElementById('hidden_desactivados').value = this.checked ? 'on' : ''; this.form.submit();">
-      Mostrar documentos desactivados
-    </label>
-  </div>
-</form>
 
-<!-- Contenedor de tarjetas -->
-<div id="documentos-table">
-  {% include 'documentos/partials/_tarjetas_documentos.html' with desactivar_mode=False %}
+  <div class="search-container">
+    <form method="GET" action="{% url 'lista_documentos' %}" id="search-form">
+      <div class="row g-3 align-items-end">
+        <div class="col-md-5">
+          <label for="search-input" class="form-label">Buscar documentos</label>
+          <input type="text" id="search-input" name="q" class="form-control" 
+                 placeholder="Código, nombre, descripción..." value="{{ q }}">
+        </div>
+        <div class="col-md-3">
+          <label for="fecha_inicial" class="form-label">Desde</label>
+          <input type="date" name="fecha_inicial" class="form-control" value="{{ fecha_inicial }}">
+        </div>
+        <div class="col-md-3">
+          <label for="fecha_final" class="form-label">Hasta</label>
+          <input type="date" name="fecha_final" class="form-control" value="{{ fecha_final }}">
+        </div>
+        <div class="col-md-1">
+          <button type="submit" class="btn btn-primary w-100">
+            <i class="bi bi-funnel"></i>
+          </button>
+        </div>
+      </div>
+      <div class="show-inactive-checkbox">
+        <input type="checkbox" name="mostrar_desactivados" id="mostrar_desactivados"
+               {% if mostrar_desactivados %}checked{% endif %}
+               onchange="document.getElementById('hidden_desactivados').value = this.checked ? 'on' : ''; document.getElementById('search-form').submit();">
+        <label for="mostrar_desactivados">Mostrar documentos desactivados</label>
+        <input type="hidden" id="hidden_desactivados" name="mostrar_desactivados" value="{{ mostrar_desactivados|yesno:'on,' }}">
+      </div>
+    </form>
+  </div>
+
+  <div class="lista-documentos">
+    <div id="documentos-table">
+      {% include 'documentos/partials/_tarjetas_documentos.html' with desactivar_mode=False tarjeta_class='tarjeta-lista' %}
+    </div>
+  </div>
 </div>
 {% endblock %}
 
 {% block extra_js %}
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $(document).ready(function(){
-      $("#search-input").on("keyup", function(){
-          var query = $(this).val();
-          var mostrarDesactivados = $('input[name="mostrar_desactivados"]').is(':checked');
-          $.ajax({
-              url: "{% url 'ajax_busqueda_documentos' %}",
-              data: { 'q': query, 'mostrar_desactivados': mostrarDesactivados ? 'on' : ''},
-              success: function(data) {
-                  $("#documentos-table").html(data);
-              },
-              error: function(xhr, status, error) {
-                  console.error("Error en la búsqueda: ", error);
-              }
-          });
+    $("#search-input").on("keyup", function(){
+      var query = $(this).val();
+      var mostrarDesactivados = $('input[name="mostrar_desactivados"]').is(':checked');
+      
+      $.ajax({
+        url: "{% url 'ajax_busqueda_documentos' %}",
+        data: { 
+          'q': query, 
+          'mostrar_desactivados': mostrarDesactivados ? 'on' : '',
+          'fecha_inicial': $('input[name="fecha_inicial"]').val(),
+          'fecha_final': $('input[name="fecha_final"]').val()
+        },
+        success: function(data) {
+          $("#documentos-table").html(data);
+        },
+        error: function(xhr, status, error) {
+          console.error("Error en la búsqueda: ", error);
+        }
       });
+    });
+    
+    $('input[name="fecha_inicial"], input[name="fecha_final"]').change(function(){
+      $("#search-input").keyup();
+    });
   });
 </script>
 {% endblock %}
-

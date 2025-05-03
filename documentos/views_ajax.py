@@ -75,13 +75,15 @@ def ajax_busqueda_documentos(request):
             Q(ruta_fisica__icontains=q)
         )
 
-    return render(request, 'documentos/partials/_tarjetas_documentos.html', {'docs': documentos})
+    return render(request, 'documentos/partials/_tarjetas_documentos.html', {
+        'docs': documentos,
+        'tarjeta_class': 'tarjeta-lista'
+    })
 
 # AJAX desactivar documentos
 @csrf_exempt
 def ajax_desactivar_documentos(request):
     if request.method == "POST":
-        
         fecha = request.POST.get("fecha")
 
         if fecha:
@@ -95,7 +97,11 @@ def ajax_desactivar_documentos(request):
 
             documentos_a_mostrar = _filtrar_documentos_para_desactivacion(fecha_limite)
 
-            html_rendered = render(request, 'documentos/partials/_tarjetas_documentos.html', {"docs": documentos_a_mostrar, 'desactivar_mode': True}).content.decode('utf-8')
+            html_rendered = render(request, 'documentos/partials/_tarjetas_documentos.html', {
+                "docs": documentos_a_mostrar,
+                'desactivar_mode': True,
+                'tarjeta_class': 'tarjeta-desactivar'
+            }).content.decode('utf-8')
 
             return JsonResponse({
                 "success": True,

@@ -6,95 +6,53 @@
 {% block extra_head %}
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <style>
-    body {
-      background: linear-gradient(to right, #f0f2f5, #d9e2ec);
-      min-height: 100vh;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .blur-background::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(6px);
-      background-color: rgba(255, 255, 255, 0.2);
-      z-index: -1;
-    }
-
     .form-wizard {
-      position: relative;
-      z-index: 1;
-      max-width: 600px;
-      width: 100%;
-      margin: auto;
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(4px);
-      animation: fadeIn 0.5s ease;
+      padding: 2rem 0;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .progress-bar-custom {
-      height: 5px;
-      background-color: #198754;
-      width: 0%;
-      transition: width 0.4s ease;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-radius: 3px 3px 0 0;
-    }
-
+    
     .step {
       display: none;
+      padding: 1rem;
+      animation: fadeIn 0.3s ease;
     }
-
+    
     .step.active {
       display: block;
     }
-
-    .step-indicator {
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .form-actions {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 2rem;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
     }
-
-    .step-indicator .step-num {
-      flex: 1;
-      text-align: center;
-      font-weight: bold;
-      padding: 10px;
-      border-bottom: 3px solid #ccc;
-      color: #999;
+    
+    /* Mejora para los campos del formulario */
+    .form-group {
+      margin-bottom: 1.5rem;
     }
-
-    .step-indicator .step-num.active {
-      color: #000;
-      border-color: #0d6efd;
+    
+    .form-group label {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      display: block;
     }
   </style>
 {% endblock %}
 
 {% block content %}
-<div class="container py-5">
-  <div class="form-wizard position-relative">
-    <div class="progress-bar-custom" id="progressBar"></div>
-
+<div class="form-wizard-container">
+  <div class="form-wizard">
     <div class="step-indicator">
-      <div class="step-num step-1 active">Paso 1<br><small>Datos Básicos</small></div>
-      <div class="step-num step-2">Paso 2<br><small>TRD</small></div>
-      <div class="step-num step-3">Paso 3<br><small>Archivo</small></div>
+      <div class="step-num step-1 active">1 <span>Datos Básicos</span></div>
+      <div class="step-num step-2">2 <span>TRD</span></div>
+      <div class="step-num step-3">3 <span>Archivo</span></div>
     </div>
 
     <form id="document-form" method="POST" enctype="multipart/form-data">
@@ -102,62 +60,99 @@
 
       <!-- Paso 1 -->
       <div class="step step-1 active">
-        <div class="mb-3">
-          {{ form.codigo.label_tag }} {{ form.codigo }}
+        <div class="form-group">
+          {{ form.codigo.label_tag }}
+          {{ form.codigo }}
+          <small class="text-muted">Código único del documento</small>
         </div>
-        <div class="mb-3">
-          {{ form.nombre.label_tag }} {{ form.nombre }}
+        
+        <div class="row">
+          <div class="col-md-6 form-group">
+            {{ form.nombre.label_tag }}
+            {{ form.nombre }}
+          </div>
+          <div class="col-md-6 form-group">
+            {{ form.fecha_inicial.label_tag }}
+            {{ form.fecha_inicial }}
+          </div>
+          <div class="col-md-6 form-group">
+            {{ form.fecha_final.label_tag }}
+            {{ form.fecha_final }}
+          </div>
         </div>
-        <div class="mb-3">
-          {{ form.descripcion.label_tag }} {{ form.descripcion }}
-        </div>
-        <div class="mb-3">
-          {{ form.fecha_inicial.label_tag }} {{ form.fecha_inicial }}
-        </div>
-        <div class="mb-3">
-          {{ form.fecha_final.label_tag }} {{ form.fecha_final }}
+        
+        <div class="form-group">
+          {{ form.descripcion.label_tag }}
+          {{ form.descripcion }}
         </div>
       </div>
 
       <!-- Paso 2 -->
       <div class="step step-2">
-        <div class="mb-3">
-          {{ form.folio_inicial.label_tag }} {{ form.folio_inicial }}
+        <div class="row">
+          <div class="col-md-6 form-group">
+            {{ form.serie.label_tag }}
+            {{ form.serie }}
+          </div>
+          <div class="col-md-6 form-group">
+            {{ form.subserie.label_tag }}
+            {{ form.subserie }}
+          </div>
         </div>
-        <div class="mb-3">
-          {{ form.folio_final.label_tag }} {{ form.folio_final }}
+        
+        <div class="row">
+          <div class="col-md-6 form-group">
+            {{ form.sesion.label_tag }}
+            {{ form.sesion }}
+          </div>
+          <div class="col-md-6 form-group">
+            {{ form.subsesion.label_tag }}
+            {{ form.subsesion }}
+          </div>
         </div>
-        <div class="mb-3">
-          {{ form.serie.label_tag }} {{ form.serie }}
+        
+        <div class="row">
+          <div class="col-md-6 form-group">
+            {{ form.folio_inicial.label_tag }}
+            {{ form.folio_inicial }}
+          </div>
+          <div class="col-md-6 form-group">
+            {{ form.folio_final.label_tag }}
+            {{ form.folio_final }}
+          </div>
         </div>
-        <div class="mb-3">
-          {{ form.subserie.label_tag }} {{ form.subserie }}
-        </div>
-        <div class="mb-3">
-          {{ form.sesion.label_tag }} {{ form.sesion }}
-        </div>
-        <div class="mb-3">
-          {{ form.subsesion.label_tag }} {{ form.subsesion }}
-        </div>
-        <div class="mb-3">
-          {{ form.tipo_documental.label_tag }} {{ form.tipo_documental }}
+        
+        <div class="form-group">
+          {{ form.tipo_documental.label_tag }}
+          {{ form.tipo_documental }}
         </div>
       </div>
 
       <!-- Paso 3 -->
       <div class="step step-3">
-        <div class="mb-3">
-          {{ form.archivo.label_tag }} {{ form.archivo }}
+        <div class="form-group">
+          {{ form.archivo.label_tag }}
+          {{ form.archivo }}
+          <small class="text-muted">Formatos aceptados: PDF, DOCX, XLSX</small>
         </div>
-        <div class="mb-3">
-          {{ form.ruta_fisica.label_tag }} {{ form.ruta_fisica }}
+        
+        <div class="form-group">
+          {{ form.ruta_fisica.label_tag }}
+          {{ form.ruta_fisica }}
+          <small class="text-muted">Ubicación física del documento</small>
         </div>
       </div>
 
-      <div class="d-flex justify-content-between mt-4">
-        <button type="button" class="btn btn-secondary" id="prevBtn">Anterior</button>
-        <button type="button" class="btn btn-primary" id="nextBtn">Siguiente</button>
-        <button type="submit" class="btn btn-success d-none" id="submitBtn">Guardar Documento</button>
+      <div class="form-actions">
+        <button type="button" class="btn btn-outline-secondary" id="prevBtn">
+          <i class="bi bi-arrow-left"></i> Anterior
+        </button>
+        <button type="button" class="btn btn-primary" id="nextBtn">
+          Siguiente <i class="bi bi-arrow-right"></i>
+        </button>
+        <button type="submit" class="btn btn-success d-none" id="submitBtn">
+          <i class="bi bi-save"></i> Guardar Documento
+        </button>
       </div>
     </form>
   </div>
@@ -203,37 +198,50 @@
     let currentStep = 1;
     const totalSteps = 3;
 
+    function updateStepIndicator() {
+      $(".step-num").removeClass("active completed");
+      
+      $(".step-num").each(function(index) {
+        if (index + 1 < currentStep) {
+          $(this).addClass("completed");
+        } else if (index + 1 === currentStep) {
+          $(this).addClass("active");
+        }
+      });
+    }
+
     function showStep(step) {
       $(".step").removeClass("active");
       $(".step-" + step).addClass("active");
-
-      $(".step-num").removeClass("active");
-      $(".step-num.step-" + step).addClass("active");
-
+      
       $("#prevBtn").toggle(step > 1);
       $("#nextBtn").toggle(step < totalSteps);
       $("#submitBtn").toggleClass("d-none", step < totalSteps);
-
-      // Progreso visual
-      const progressPercent = ((step - 1) / (totalSteps - 1)) * 100;
-      $("#progressBar").css("width", progressPercent + "%");
+      
+      updateStepIndicator();
     }
 
-    $("#prevBtn").click(function () {
+    $("#prevBtn").click(function() {
       if (currentStep > 1) {
         currentStep--;
         showStep(currentStep);
       }
     });
 
-    $("#nextBtn").click(function () {
+    $("#nextBtn").click(function() {
       if (currentStep < totalSteps) {
         currentStep++;
         showStep(currentStep);
       }
     });
 
+    // Inicialización
     showStep(currentStep);
+    
+    // Validación antes de avanzar
+    $("#nextBtn").click(function() {
+      return true;
+    });
   });
 </script>
 {% endblock %}
