@@ -9,6 +9,7 @@ from django.views.decorators.http import require_POST
 from django.http import HttpResponseRedirect, JsonResponse
 from logs.models import Log
 from django.utils.dateparse import parse_date
+from django import forms
 import logging
 import os
 from django.conf import settings
@@ -113,6 +114,10 @@ def editar_documento(request, id):
             messages.error(request, "Error al actualizar el documento.")
     else:
         form = DocumentoForm(instance=doc)
+        # Ocultar el campo de archivo
+        if 'archivo' in form.fields:
+            form.fields['archivo'].widget = forms.HiddenInput()
+            
     return render(request, 'documentos/editar.html', {'form': form, 'doc': doc})
 
 @login_required

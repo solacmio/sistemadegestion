@@ -39,23 +39,41 @@ def generar_pdf_documentos(documentos):
     p.setFont("Helvetica", 10)
 
     for doc in documentos:
-        if y < 100:  # salto de página
+        if y < 150:  # salto de página antes de quedarse sin espacio
             p.showPage()
             y = height - 50
             p.setFont("Helvetica", 10)
 
+        # Mostrar los campos deseados
         p.drawString(50, y, f"Código: {doc.codigo}")
-        p.drawString(250, y, f"Nombre: {doc.nombre}")
+        y -= 15
+        p.drawString(50, y, f"Nombre: {doc.nombre}")
         y -= 15
         p.drawString(50, y, f"Tipo Documental: {doc.tipo_documental}")
         y -= 15
         p.drawString(50, y, f"Descripción: {doc.descripcion or 'Sin descripción'}")
-        y -= 25
+        y -= 15
+        p.drawString(50, y, f"Fecha Inicial: {doc.fecha_inicial.strftime('%Y-%m-%d') if doc.fecha_inicial else 'N/A'}")
+        y -= 15
+        p.drawString(50, y, f"Fecha Final: {doc.fecha_final.strftime('%Y-%m-%d') if doc.fecha_final else 'N/A'}")
+        y -= 15
+        p.drawString(50, y, f"serie: {doc.serie}")
+        y -= 15
+        p.drawString(50, y, f"subserie: {doc.subserie}")
+        y -= 15
+        p.drawString(50, y, f"sección: {doc.sesion}")
+        y -= 15
 
-    p.showPage()
+        # Separador
+        p.setFont("Helvetica", 9)
+        p.drawString(50, y, "-------------------------------------------------------------------------")
+        y -= 20
+        p.setFont("Helvetica", 10)
+
     p.save()
     buffer.seek(0)
     return buffer
+
 
 # AJAX búsqueda con filtros
 def ajax_busqueda_documentos(request):
